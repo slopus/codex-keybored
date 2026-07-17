@@ -1,12 +1,305 @@
 <!doctype html>
+<!-- Generated from docs/index.html by docs/build_root.mjs. -->
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="refresh" content="0; url=docs/">
-  <title>CODEX KEYBORED — Manufacturing dossier</title>
-  <link rel="canonical" href="docs/">
-  <style>html{background:#0f110f;color:#f2efe7;font:16px/1.5 system-ui}body{display:grid;min-height:90vh;place-items:center}a{color:#c5ff48}</style>
+  <meta name="color-scheme" content="dark">
+  <title>CODEX KEYBORED / Work Loafer manufacturing dossier</title>
+  <link rel="canonical" href="https://happy.engineering/codex-keybored/">
+  <style>
+    :root {
+      --ink:#090a09; --panel:#111310; --panel2:#171a16; --paper:#eceee7;
+      --muted:#9da398; --line:#32372f; --acid:#c8ff3d; --amber:#ff9d2e;
+      --blue:#7ed8ff; --red:#ff645f; --max:1320px;
+      --display:"Avenir Next Condensed","DIN Condensed","Franklin Gothic Condensed",Impact,sans-serif;
+      --mono:"SFMono-Regular",Menlo,Consolas,monospace;
+    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;background:var(--ink);color:var(--paper);font:15px/1.55 var(--mono)}
+    a{color:inherit;text-decoration-thickness:1px;text-underline-offset:4px}
+    img{display:block;max-width:100%}
+    .wrap{max-width:var(--max);margin:auto;padding:0 32px}
+    .eyebrow{color:var(--acid);font-size:11px;letter-spacing:.18em;text-transform:uppercase}
+    .stamp{display:inline-flex;gap:8px;align-items:center;border:1px solid var(--line);padding:7px 9px;font-size:11px;text-transform:uppercase;letter-spacing:.08em}
+    .dot{width:7px;height:7px;border-radius:50%;background:var(--acid);box-shadow:0 0 12px var(--acid)}
+    .muted{color:var(--muted)} .acid{color:var(--acid)} .amber{color:var(--amber)}
+    header{position:sticky;top:0;z-index:20;background:rgba(9,10,9,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+    nav{max-width:var(--max);margin:auto;padding:14px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    nav .brand{font-weight:800;letter-spacing:-.04em;font-size:17px} nav .links{display:flex;gap:20px;color:var(--muted);font-size:12px}
+    .hero{min-height:84vh;display:grid;grid-template-columns:1.05fr .95fr;align-items:end;border-bottom:1px solid var(--line)}
+    .hero-copy{padding:92px 5vw 74px max(32px,calc((100vw - var(--max))/2 + 32px))}
+    h1{font:900 clamp(54px,8.5vw,132px)/.82 var(--display);letter-spacing:-.075em;margin:28px 0 32px;text-transform:uppercase}
+    h1 span{display:block;color:transparent;-webkit-text-stroke:1px var(--paper)}
+    .lede{max-width:690px;font-size:17px;color:#c4c8bf}
+    .hero-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:36px}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}.cta{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 15px;border:1px solid var(--acid);background:var(--acid);color:var(--ink);font-size:11px;font-weight:800;letter-spacing:.09em;text-decoration:none;text-transform:uppercase}.cta.secondary{background:transparent;color:var(--paper);border-color:var(--line)}.cta:hover{transform:translateY(-2px);box-shadow:0 8px 24px #0008}.cta:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+    .hero-visual{position:relative;min-height:680px;background:#d7d8cf;overflow:hidden}
+    .hero-visual img{position:absolute;width:120%;max-width:none;left:-12%;bottom:-2%;filter:saturate(.85) contrast(1.06)}
+    .hero-visual:after{content:'WORK LOAFER / REV A2';position:absolute;right:-115px;top:142px;color:#151615;font-size:12px;letter-spacing:.22em;transform:rotate(90deg)}
+    .corner{position:absolute;left:22px;top:22px;color:#171817;font-size:11px;z-index:2}
+    .vibe{background:var(--acid);color:var(--ink);padding:96px 0}.vibe .eyebrow{color:var(--ink);font-weight:900}.vibe h2{font-size:clamp(58px,8.8vw,132px);line-height:.82;max-width:1190px;margin:20px 0 28px}.vibe-manifesto{font:900 clamp(28px,4.2vw,62px)/.94 var(--display);letter-spacing:-.045em;text-transform:uppercase;max-width:1100px;margin:0 0 34px}.vibe-lede{font:700 clamp(18px,2.1vw,28px)/1.25 var(--display);max-width:1040px;letter-spacing:-.015em}.vibe-grid{display:grid;grid-template-columns:repeat(3,1fr);border:2px solid var(--ink);margin:44px 0 28px}.vibe-step{padding:22px;min-height:190px;border-right:1px solid var(--ink);border-bottom:1px solid var(--ink)}.vibe-step:nth-child(3n){border-right:0}.vibe-step:nth-child(n+4){border-bottom:0}.vibe-step span{font-size:10px;letter-spacing:.12em}.vibe-step b{display:block;font:900 25px/1 var(--display);text-transform:uppercase;margin:34px 0 10px}.vibe-step p{font-size:12px;margin:0}.vibe-flow{border:2px solid var(--ink);padding:20px;font-size:clamp(11px,1.4vw,18px);font-weight:800;line-height:1.7;text-align:center}.vibe-proof{margin-top:28px;background:var(--ink);padding:8px}.vibe-proof img{width:100%}.vibe-proof figcaption{color:var(--acid);padding:10px 8px 4px;font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+    section{padding:88px 0;border-bottom:1px solid var(--line)}
+    .section-head{display:grid;grid-template-columns:1fr 2fr;gap:28px;margin-bottom:42px;align-items:end}
+    h2{font:800 clamp(34px,5vw,72px)/.93 var(--display);letter-spacing:-.055em;margin:8px 0 0;text-transform:uppercase}
+    .section-note{color:var(--muted);max-width:720px;margin:0 0 4px}
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+    .figure{background:var(--panel);position:relative;min-height:420px;overflow:hidden}
+    .figure img{width:100%;height:100%;object-fit:cover}.figure.contain img{object-fit:contain;padding:24px}
+    .figlabel{position:absolute;left:14px;top:14px;background:#090a09d9;border:1px solid var(--line);padding:7px 9px;font-size:10px;letter-spacing:.1em;text-transform:uppercase}
+    .callout{margin-top:18px;border-left:3px solid var(--acid);padding:12px 0 12px 18px;color:#c7cbc2}
+    .facts{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+    .fact{padding:22px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);min-height:126px}.fact b{font:800 28px/1 var(--display);display:block;margin:10px 0}.fact small{color:var(--muted)}
+    .confidence{display:inline-block;border:1px solid var(--line);border-radius:99px;padding:3px 7px;font-size:9px;letter-spacing:.09em;text-transform:uppercase}.confirmed{border-color:#5f7929;color:var(--acid)}.measured{border-color:#315c70;color:var(--blue)}.inferred{border-color:#754817;color:var(--amber)}
+    .layout{display:grid;grid-template-columns:1.15fr .85fr;gap:28px}
+    .keygrid{aspect-ratio:1;background:#d6d8d0;color:#10110f;border-radius:18px;padding:5.5%;display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(4,1fr);gap:3%;transform:perspective(1100px) rotateX(2deg)}
+    .key{border:1px solid #7c7f77;background:#f0f1eb;border-radius:6px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:10px;box-shadow:0 5px 0 #aeb0aa}.key.agent{background:#20231f;color:var(--acid)}.key.ctrl{border-radius:50%;background:#282b27;color:#fff}.key.touch{background:transparent;border-style:dashed;box-shadow:none}.key.ptt{grid-column:2/4}.key.blank{opacity:0;pointer-events:none}
+    .stack{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+    .stack-row{display:grid;grid-template-columns:145px 1fr 110px;gap:18px;align-items:center;background:var(--panel);padding:16px}.stack-row b{font-family:var(--display);font-size:18px}.stack-row em{font-style:normal;color:var(--muted);font-size:12px}.stack-row code{color:var(--acid);text-align:right}
+    .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .card{background:var(--panel);border:1px solid var(--line);overflow:hidden}.card-media{height:310px;background:#d6d7d0;position:relative}.card-media img{width:100%;height:100%;object-fit:contain}.card-body{padding:22px}.card h3{font:800 26px/1 var(--display);margin:0 0 10px;letter-spacing:-.03em}.partno{color:var(--acid);font-size:11px}.specgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:20px 0}.specgrid div{border-top:1px solid var(--line);padding-top:8px;font-size:12px}.specgrid span{display:block;color:var(--muted);font-size:10px;text-transform:uppercase}.price{font:900 40px/1 var(--display);letter-spacing:-.04em}.price small{font:12px/1 var(--mono);color:var(--muted);letter-spacing:0}.obsolete{border-color:#71332f}.obsolete .partno{color:var(--red)}
+    table{width:100%;border-collapse:collapse;font-size:12px}th,td{padding:12px 10px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}th{color:var(--muted);font-weight:400;text-transform:uppercase;font-size:10px;letter-spacing:.08em}td:last-child,th:last-child{text-align:right}.total td{font-weight:800;color:var(--acid);font-size:15px}
+    .quote{display:grid;grid-template-columns:1.15fr .85fr;gap:24px;align-items:start}.quote-shot{border:1px solid var(--line);background:white;padding:8px}.quote-shot img{width:100%}.warning{border:1px solid #77402d;background:#24150e;padding:16px;color:#ffb981;margin-top:18px}
+    .turnkey{margin:28px 0;border:1px solid var(--acid);background:linear-gradient(135deg,#182013,#10130f);padding:22px}.turnkey h3{font:900 clamp(28px,4vw,48px)/.95 var(--display);letter-spacing:-.04em;margin:4px 0 12px;text-transform:uppercase}.turnkey .stamp{border-color:#5f7929}.turnkey-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);margin-top:20px}.turnkey-step{background:var(--panel);padding:16px;min-height:150px}.turnkey-step b{display:block;font-family:var(--display);font-size:20px;margin:18px 0 7px}.turnkey-step small{color:var(--muted)}
+    .board-hero{display:grid;grid-template-columns:1fr 1fr;gap:18px}.board-hero figure{margin:0;background:#d5d7cf;border-radius:14px;overflow:hidden}.board-hero img{aspect-ratio:4/3;object-fit:contain}.board-hero figcaption{background:var(--panel);padding:10px 14px;color:var(--muted);font-size:11px}
+    .architecture{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:28px 0}.arch{border:1px solid var(--line);padding:16px;min-height:138px}.arch b{font-family:var(--display);font-size:19px;display:block;margin-bottom:10px}.arch:before{content:attr(data-n);display:block;color:var(--acid);font-size:10px;margin-bottom:22px}
+    .downloads{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.download{border:1px solid var(--line);padding:18px;text-decoration:none;background:var(--panel)}.download:hover{border-color:var(--acid);color:var(--acid)}.download small{display:block;color:var(--muted);margin-top:10px}
+    .sources{columns:2;column-gap:40px}.sources li{break-inside:avoid;margin:0 0 12px;color:var(--muted)}
+    footer{padding:42px 0 80px;color:var(--muted)}
+    .js section.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}.js section.reveal.is-visible{opacity:1;transform:none}
+    @media(prefers-reduced-motion:no-preference){.hero-copy>*{animation:rise .65s both}.hero-copy>*:nth-child(2){animation-delay:.06s}.hero-copy>*:nth-child(3){animation-delay:.12s}.hero-copy>*:nth-child(4){animation-delay:.18s}.hero-copy>*:nth-child(5){animation-delay:.24s}@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}}
+    @media(max-width:900px){.hero{grid-template-columns:1fr}.hero-visual{min-height:460px}.section-head,.layout,.quote{grid-template-columns:1fr}.facts{grid-template-columns:repeat(2,1fr)}.cards,.board-hero{grid-template-columns:1fr}.architecture,.turnkey-grid{grid-template-columns:repeat(2,1fr)}.downloads{grid-template-columns:1fr}.nav .links{display:none}.stack-row{grid-template-columns:100px 1fr}.stack-row code{grid-column:2;text-align:left}.vibe-grid{grid-template-columns:1fr}.vibe-step,.vibe-step:nth-child(3n),.vibe-step:nth-child(n+4){border-right:0;border-bottom:1px solid var(--ink)}.vibe-step:last-child{border-bottom:0}}
+    @media print{body{background:#fff;color:#111}.wrap{max-width:none}.hero{min-height:auto}.hero-copy{padding:50px 40px}.hero-visual{min-height:540px}header{display:none}section,.js section.reveal{padding:42px 0;break-before:auto;opacity:1;transform:none}.card,.fact,.arch,.figure{break-inside:avoid;background:#f7f7f4}.muted,.section-note,.card small,.stack-row em,th,.sources li{color:#555}.stack-row{background:#fafaf7}.download{background:#fafaf7}.keygrid{box-shadow:none}.quote-shot{border-color:#bbb}:root{--line:#c9ccc4;--panel:#f6f7f3;--paper:#111;--muted:#555}a{text-decoration:none}}
+  </style>
 </head>
-<body><p>Opening the <a href="docs/">CODEX KEYBORED manufacturing dossier</a>…</p></body>
+<body>
+  <header><nav><div class="brand">CODEX KEYBORED <span class="acid">/ REV A2</span></div><div class="links"><a href="#vibe">The point</a><a href="#geometry">Geometry</a><a href="#cnc">CNC</a><a href="#pcb">PCB</a><a href="#files">Downloads</a></div><div class="stamp"><i class="dot"></i>buildable dossier</div></nav></header>
+
+  <main>
+    <div class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow">WORK LOAFER EDITION / independent parody reconstruction</div>
+        <h1>Codex<span>Keybored</span></h1>
+        <p class="lede">Parametric Fusion 360 mechanics, production STEP/DXF files, a wired six-layer PCB, BOM/CPL, USB HID firmware, and live JLC quotes—assembled into one reproducible first-article package.</p>
+        <div class="hero-meta"><span class="stamp">108 × 108 mm</span><span class="stamp">12 keys + encoder press</span><span class="stamp">5° wedge</span><span class="stamp">STM32F072 / USB-C</span></div>
+        <div class="hero-actions"><a class="cta" href="output/CODEX_KEYBORED_RevA2_turnkey_factory_handoff.zip">Download turnkey handoff</a><a class="cta secondary" href="output/pdf/CODEX_KEYBORED_RevA2_schematic.pdf">View schematic</a></div>
+      </div>
+      <div class="hero-visual"><span class="corner">FUSION 360 / ASSEMBLY ISO</span><img src="docs/assets/renders/fusion-codex-assembly-iso.png" alt="Fusion 360 reconstruction of Codex Micro"></div>
+    </div>
+
+    <section class="vibe" id="vibe"><div class="wrap">
+      <div class="eyebrow">00 / this is the entire point</div>
+      <h2>Absolutely 100% vibe-coded. End to end.</h2>
+      <p class="vibe-manifesto">From the first prompt to Fusion 360, KiCad, Gerbers, firmware, and a real upload into JLCPCB + JLCCNC.</p>
+      <p class="vibe-lede">This is not a disclaimer. It is the product story. One continuous conversational build loop crossed research, industrial design, CNC, multilayer electronics, sourcing, firmware, testing, pricing, and factory handoff—and left every intermediate artifact open for inspection.</p>
+      <div class="vibe-grid">
+        <div class="vibe-step"><span>01 / OBSERVE</span><b>Images became evidence</b><p>Public renders were compared, scaled from the 19.05 mm key pitch, and separated into confirmed, measured, and inferred facts.</p></div>
+        <div class="vibe-step"><span>02 / MODEL</span><b>Evidence became solids</b><p>Dimensions became a parametric 108 × 108 mm Fusion assembly, four machinable bodies, STEP/DXF, and controlled drawings.</p></div>
+        <div class="vibe-step"><span>03 / CONNECT</span><b>Controls became a PCB</b><p>The interface became a clean-room STM32F072 design, six copper layers, 74 placement centers, and a zero-error DRC gate.</p></div>
+        <div class="vibe-step"><span>04 / ANIMATE</span><b>The PCB learned USB</b><p>TinyUSB firmware, RGB safety limits, factory binaries, checksums, and a browser-based 20-input acceptance test made it behave.</p></div>
+        <div class="vibe-step"><span>05 / CONTRACT</span><b>Preferences became an SOP</b><p>“No soldering at home” became both-side PCBA, consigned switches, manual operations, flashing, FCT, and photo evidence.</p></div>
+        <div class="vibe-step"><span>06 / QUOTE</span><b>Files entered the factory</b><p>Gerbers, BOM/CPL, STEP, drawings, and the turnkey ZIP entered authenticated JLC flows and returned real saved prices.</p></div>
+      </div>
+      <div class="vibe-flow">PROMPT → DATUM → FUSION → STEP → JLCCNC &nbsp; / &nbsp; ARCHITECTURE → KICAD → GERBER → JLCPCB &nbsp; / &nbsp; FIRMWARE → TEST → TURNKEY HANDOFF</div>
+      <p class="vibe-lede" style="margin-top:32px">The best example is one sentence: “the aluminum thing looks slightly tilted.” That observation propagated into a corrected <b>5° wedge</b>, a refreshed Fusion body, a new STEP file, a revised drawing, a successful JLCCNC import, a <b>$54.56</b> live quote, and removal of the obsolete flat part from the cart. That traceable continuity—from vibe to physical manufacturing—is the project.</p>
+      <figure class="vibe-proof"><img src=".github/codex-keybored-hero.png" alt="Exploded CODEX KEYBORED product visualization"><figcaption>One vibe / mechanics + electronics + factory handoff / Rev A2</figcaption></figure>
+    </div></section>
+
+    <section id="geometry"><div class="wrap">
+      <div class="section-head"><div><div class="eyebrow">01 / evidence</div><h2>What we actually know</h2></div><p class="section-note">External dimensions were scaled from the official near-orthographic render using the confirmed 19.05 mm key pitch. Internal steps and fasteners remain engineering assumptions until a physical unit can be inspected.</p></div>
+      <div class="split">
+        <div class="figure"><span class="figlabel">Official reference</span><img src="docs/assets/screenshots/openai-codex-micro-gallery-primary.png" alt="Official OpenAI Codex Micro render"></div>
+        <div class="figure"><span class="figlabel">Our Fusion assembly</span><img src="docs/assets/renders/fusion-codex-assembly-iso.png" alt="Fusion reconstruction"></div>
+      </div>
+      <p class="callout"><b>Corrected interpretation:</b> the top panel contains twelve conventional low-profile MX keys. Work Louder's published “13 mechanical switches” count includes the encoder push; there is no mystery thirteenth key in the model or PCB.</p>
+      <div class="facts">
+        <div class="fact"><span class="confidence measured">measured</span><b>108 × 108</b><small>external envelope, mm</small></div>
+        <div class="fact"><span class="confidence confirmed">confirmed</span><b>19.05</b><small>center pitch, mm</small></div>
+        <div class="fact"><span class="confidence measured">measured</span><b>90 × 90</b><small>top PCB, mm</small></div>
+        <div class="fact"><span class="confidence measured">measured</span><b>R14</b><small>external corner radius</small></div>
+        <div class="fact"><span class="confidence measured">measured</span><b>Ø94</b><small>aluminum base, mm</small></div>
+        <div class="fact"><span class="confidence measured">measured</span><b>5°</b><small>working-plane tilt</small></div>
+        <div class="fact"><span class="confidence inferred">inferred</span><b>3.8 → 12</b><small>wedge thickness, mm</small></div>
+        <div class="fact"><span class="confidence inferred">inferred</span><b>M3 / 78</b><small>fastener / pitch, mm</small></div>
+      </div>
+    </div></section>
+
+    <section><div class="wrap">
+      <div class="section-head"><div><div class="eyebrow">02 / interface map</div><h2>The exact layout</h2></div><p class="section-note">A 4×4 coordinate grid centered at ±28.575 and ±9.525 mm. The encoder sits on the left and the planar joystick on the right, matching the full-size official reference.</p></div>
+      <div class="layout">
+        <div class="keygrid" aria-label="4 by 4 control map">
+          <div class="key ctrl">ENC<br>↻ + PUSH</div><div class="key agent">CODEX<br>01</div><div class="key agent">CODEX<br>02</div><div class="key ctrl">JOY<br>X / Y</div>
+          <div class="key agent">AGENT<br>03</div><div class="key agent">AGENT<br>04</div><div class="key agent">AGENT<br>05</div><div class="key agent">AGENT<br>06</div>
+          <div class="key">CMD<br>07</div><div class="key">CMD<br>08</div><div class="key">CMD<br>09</div><div class="key">CMD<br>10</div>
+          <div class="key touch">TOUCH</div><div class="key ptt">PUSH TO TALK / 2U</div><div class="key">CMD<br>12</div>
+        </div>
+        <div class="stack">
+          <div class="stack-row"><b>Key plane</b><em>11 × 1U + 1 × 2U, wrk. LP1 / Gateron low profile footprint</em><code>Z +</code></div>
+          <div class="stack-row"><b>Top PCB</b><em>6-layer FR-4, 90 × 90 × 1.6 mm, four provisional M3 holes</em><code>1.60 mm</code></div>
+          <div class="stack-row"><b>Light pipe</b><em>optional frosted PMMA insert; retain for opaque/wood upper housing</em><code>1.50 mm</code></div>
+          <div class="stack-row"><b>Upper ring</b><em>polycarbonate/PMMA, 108 × 108, inner opening 92 × 92</em><code>10.30 mm</code></div>
+          <div class="stack-row"><b>Electronics</b><em>STM32F072, USB-C, lower keep-out and future wireless/battery volume</em><code>variable</code></div>
+          <div class="stack-row"><b>Weight wedge</b><em>6061-T6, Ø94, planar top, 5° underside</em><code>3.8–12 mm</code></div>
+          <div class="stack-row"><b>Grip ring</b><em>silicone/EPDM with 3M 467MP adhesive</em><code>1.0 mm</code></div>
+        </div>
+      </div>
+    </div></section>
+
+    <section><div class="wrap">
+      <div class="section-head"><div><div class="eyebrow">03 / buy first</div><h2>Keys &amp; controls</h2></div><p class="section-note">The exact Codex legend set is not sold separately. For a one-off, the most reliable path is genuine Work Louder switch/cap geometry, followed by UV printing or laser ablation after a coating test coupon.</p></div>
+      <table><thead><tr><th>What to buy</th><th>Device quantity</th><th>Current source</th><th>Status</th><th>USD</th></tr></thead><tbody>
+        <tr><td>wrk. LP1 switches</td><td>12 + spares; pack = 106</td><td><a href="https://worklouder.cc/wrk-lp1-switches">Work Louder / Splash silent or Ember clicky</a></td><td><span class="confidence confirmed">exact family</span></td><td>$59.00</td></tr>
+        <tr><td>wrk. MX Pure</td><td>12×1U + 1×2U set</td><td><a href="https://worklouder.cc/wrk-mx-pure">Frosted PC, pass-through light</a></td><td><span class="confidence confirmed">exact geometry</span></td><td>$19.00</td></tr>
+        <tr><td>wrk. MX Legend</td><td>optional icon donor set</td><td><a href="https://worklouder.cc/wrk-mx-legend">58×1U + 1×2U, coated/laser etched</a></td><td><span class="confidence measured">similar icons</span></td><td>$54.00</td></tr>
+        <tr><td>wrk. Dial 2</td><td>1</td><td><a href="https://worklouder.cc/wrk-dial-2">Creator Micro v1/v2 compatible dial cap</a></td><td><span class="confidence confirmed">exact accessory</span></td><td>$5.98</td></tr>
+        <tr><td>Planar joystick</td><td>1 + spare</td><td><a href="https://tech.alpsalpine.com/e/products/detail/RKJXY100000A/">Alps RKJXY100000A surplus or a footprint-qualified clone</a></td><td><span class="confidence inferred">obsolete candidate</span></td><td>$10–30 budget</td></tr>
+        <tr><td>M3 hardware + standoffs</td><td>4 + spares</td><td>ISO 4762 black screws; threaded brass/aluminum spacers</td><td><span class="confidence inferred">fit after sample</span></td><td>$10–20 budget</td></tr>
+        <tr><td>Grip ring</td><td>1</td><td>1 mm silicone/EPDM + 3M 467MP, laser/plotter cut</td><td><span class="confidence inferred">custom</span></td><td>$5–15 budget</td></tr>
+      </tbody></table>
+      <p class="callout"><b>How to reproduce the Codex keycaps:</b> use blank low-profile MX PBT with UV printing or temperature-qualified dye-sublimation for white keys. For illuminated keys, start with MX Pure, apply an opaque compatible coating, then laser-open the icon. Single-shot custom PBT is economically irrational for one unit; validate a fully custom shape in tough/clear SLA, beginning with an isolated MX-cross calibration coupon.</p>
+    </div></section>
+
+    <section id="cnc"><div class="wrap">
+      <div class="section-head"><div><div class="eyebrow">04 / cnc pack</div><h2>Four machined parts</h2></div><p class="section-note">All STEP files passed automated JLC CNC import. The base was replaced with a wedge after the official side render revealed the tilt; the early flat version is no longer a production part.</p></div>
+      <div class="split" style="margin-bottom:18px">
+        <div class="figure"><span class="figlabel">Official exploded render</span><img src="docs/assets/screenshots/openai-codex-micro-gallery-exploded.png" alt="Official exploded Codex Micro render"></div>
+        <div class="figure"><span class="figlabel">Fusion / corrected 5° side profile</span><img src="docs/assets/renders/fusion-codex-assembly-side.png" alt="Fusion side profile showing the wedge"></div>
+      </div>
+      <div class="cards">
+        <article class="card"><div class="card-media"><img src="docs/assets/renders/fusion-cm2-001-upper-housing.png" alt="Upper housing CNC part"></div><div class="card-body"><div class="partno">CM2-001 / CNC</div><h3>Upper housing</h3><p class="muted">A diffusing outer bezel with an internal pocket for the 90 mm panel. Machine cast PC/PMMA for the transparent version; use stabilized maple, walnut, or birch laminate plus a separate light pipe for a warm wood prototype.</p><div class="specgrid"><div><span>Envelope</span>108 × 108 × 10.3</div><div><span>Corner</span>R14</div><div><span>Opening</span>92 × 92 / R7</div><div><span>Volume</span>41,391.64 mm³</div></div><div class="price">$58.96 <small>/ qty 1</small></div></div></article>
+        <article class="card"><div class="card-media"><img src="docs/assets/renders/fusion-cm2-002-bottom-weight-side.png" alt="Angled bottom weight"></div><div class="card-body"><div class="partno">CM2-002 / CNC / REVISED</div><h3>Angled weight</h3><p class="muted">A solid wedge with a flat upper datum and sloped underside. It corrects the critical error in the early flat base and establishes the slightly raised official profile.</p><div class="specgrid"><div><span>Envelope</span>Ø94 × 12 max</div><div><span>Tilt</span>5° nominal</div><div><span>Thickness</span>3.8 → 12.0</div><div><span>Finish</span>bead blast + black anodize</div></div><div class="price">$54.56 <small>/ qty 1</small></div></div></article>
+        <article class="card"><div class="card-media"><img src="docs/assets/renders/fusion-cm2-003-lightpipe.png" alt="Optional light pipe"></div><div class="card-body"><div class="partno">CM2-003 / OPTIONAL</div><h3>Light pipe</h3><p class="muted">A thin matte PMMA insert between the PCB and an opaque housing. It is essential for the wood option; without it, the lower RGB chain cannot produce the characteristic perimeter glow.</p><div class="specgrid"><div><span>Envelope</span>108 × 108 × 1.5</div><div><span>Material</span>frosted PMMA</div><div><span>Finish</span>uniform matte</div><div><span>Role</span>underglow diffusion</div></div><div class="price">$40.62 <small>/ qty 1</small></div></div></article>
+        <article class="card"><div class="card-media"><img src="docs/assets/renders/fusion-cm2-004-joystick-cap.png" alt="Joystick cap"></div><div class="card-body"><div class="partno">CM2-004 / PROTOTYPE</div><h3>Joystick cap</h3><p class="muted">A rigid POM fit-check part. Cast the final tactile cap in Shore A 40–50 silicone after measuring the real RKJXY or selected substitute.</p><div class="specgrid"><div><span>Envelope</span>Ø14.5 × 7</div><div><span>Quote material</span>POM</div><div><span>Final material</span>silicone / TPU</div><div><span>Fit</span>depends on joystick shaft</div></div><div class="price">$19.42 <small>/ qty 1</small></div></div></article>
+      </div>
+    </div></section>
+
+    <section><div class="wrap">
+      <div class="section-head"><div><div class="eyebrow">05 / live quote</div><h2>JLC CNC</h2></div><p class="section-note">Quotes were captured in an authenticated session on July 17, 2026. Prices are dynamic and exclude possible tax or duty; the corrected wedge is saved in the cart.</p></div>
+      <div class="quote">
+        <div><div class="quote-shot"><img src="docs/assets/screenshots/jlccnc-angled-wedge-quote.png" alt="JLC CNC live quote for the angled wedge"></div><div class="callout"><b>Cart cleaned:</b> the obsolete $23.71 flat base was removed. Four production CNC items remain; CM2-002 is now the corrected 5° wedge at $54.56.</div></div>
+        <div><table><thead><tr><th>Part</th><th>Quote ID</th><th>USD</th></tr></thead><tbody><tr><td>CM2-001 / Polycarbonate</td><td>CNC…2636</td><td>$58.96</td></tr><tr><td>CM2-002 / 6061 wedge</td><td>CNC…3034</td><td>$54.56</td></tr><tr><td>CM2-003 / PMMA</td><td>CNC…2631</td><td>$40.62</td></tr><tr><td>CM2-004 / POM</td><td>CNC…2621</td><td>$19.42</td></tr><tr class="total"><td colspan="2">CNC subtotal</td><td>$173.56</td></tr><tr><td colspan="2">PCB + PCBA</td><td>$173.65</td></tr><tr><td colspan="2">Combined shipping</td><td>$29.69</td></tr><tr class="total"><td colspan="2">JLC cart delivered estimate</td><td>$376.90</td></tr></tbody></table><p class="muted">Full IDs: wedge CNC2607175003034-3086316A; cap CNC2607175002621-3086316A; light pipe CNC2607175002631-3086316A; upper CNC2607175002636-3086316A. Cart weight: 1.06 kg; estimated ship date: July 25, 2026. Base threads remain unfrozen until first fit-check.</p></div>
+      </div>
+      <div class="quote-shot" style="margin-top:24px"><img src="docs/assets/jlcpcb/cart_pcb_cnc.png" alt="JLC cart with PCB, PCBA and four CNC parts"></div>
+    </div></section>
+
+    <section id="pcb"><div class="wrap">
+      <div class="section-head"><div><div class="eyebrow">06 / electronics</div><h2>Wired Rev A2</h2></div><p class="section-note">The wired version preserves the 90×90 mm mechanical interface and internal volume for a future swappable wireless PCB. Six layers provide continuous GND/+5V planes, two signal layers, and a short crystal-less USB path.</p></div>
+      <div class="board-hero">
+        <figure><img src="docs/assets/pcb/keybored_top.png" alt="CODEX KEYBORED top PCB"><figcaption>TOP / CODEX KEYBORED + WORK LOAFER EDITION</figcaption></figure>
+        <figure><img src="docs/assets/pcb/keybored_bottom.png" alt="CODEX KEYBORED bottom PCB"><figcaption>BOTTOM / STM32F072 island, power, matrix, RGB, and PRESS KEYS, SHIP BUGS</figcaption></figure>
+      </div>
+      <p class="callout"><b>Production gate closed:</b> KiCad DRC = 0 violations / 0 unconnected. The Gerber ZIP includes all six copper layers, mask, paste, silk, Edge.Cuts, and separate PTH/NPTH drill files. Machine-readable connectivity is exported as IPC-D-356.</p>
+      <div class="board-hero" style="margin-top:18px">
+        <figure><img src="electronics/production/schematic/CODEX_KEYBORED_schematic_1.png" alt="USB power and STM32 schematic"><figcaption>SCHEMATIC 1/3 / USB, power, STM32F072, SWD</figcaption></figure>
+        <figure><img src="electronics/production/schematic/CODEX_KEYBORED_schematic_3.png" alt="RGB pin map and production gate"><figcaption>SCHEMATIC 3/3 / RGB, pin map, production gate</figcaption></figure>
+      </div>
+      <div class="architecture">
+        <div class="arch" data-n="01"><b>USB-C</b>HRO TYPE-C-31-M-12, 5.1 kΩ CC, USBLC6 ESD; reversible pairs cross on SIGNAL_1/2.</div>
+        <div class="arch" data-n="02"><b>STM32F072</b>LQFP48, 128 KB flash, HSI48 + CRS; no external crystal or QSPI flash.</div>
+        <div class="arch" data-n="03"><b>Controls</b>12-key matrix, clickable encoder, analog X/Y joystick and capacitive touch.</div>
+        <div class="arch" data-n="04"><b>Lighting</b>24 × SK6812MINI-E: 12 per-key, 9 underglow, 3 status; AHCT level shift.</div>
+        <div class="arch" data-n="05"><b>Power</b>ME6211 3.3 V LDO, local bypass and 100 µF 5 V LED bulk capacitor.</div>
+      </div>
+      <table><thead><tr><th>Ref</th><th>Component</th><th>Selected part</th><th>LCSC</th><th>Assembly</th></tr></thead><tbody>
+        <tr><td>U1</td><td>MCU</td><td>STM32F072CBT6 / LQFP48</td><td>C81720</td><td>JLC bottom</td></tr>
+        <tr><td>U3</td><td>3.3 V LDO</td><td>ME6211C33M5G-N</td><td>C82942</td><td>JLC bottom</td></tr>
+        <tr><td>U4</td><td>USB ESD</td><td>USBLC6-2SC6</td><td>C7519</td><td>JLC bottom</td></tr>
+        <tr><td>U5</td><td>LED level shift</td><td>SN74AHCT1G125DBVR</td><td>C7484</td><td>JLC bottom</td></tr>
+        <tr><td>U6</td><td>Touch controller</td><td>TTP223-BA6-TD</td><td>C42422127</td><td>JLC bottom</td></tr>
+        <tr><td>J1</td><td>USB-C</td><td>HRO TYPE-C-31-M-12</td><td>C165948</td><td>JLC top side</td></tr>
+        <tr><td>D1–D12</td><td>Matrix diode</td><td>1N4148W</td><td>C81598</td><td>JLC bottom</td></tr>
+        <tr><td>LED1–LED24</td><td>RGB</td><td>SK6812MINI-E reverse mount</td><td>C5149201</td><td>JLC bottom</td></tr>
+        <tr><td>R3,R4</td><td>10 kΩ bias</td><td>Yageo RC0603FR-0710KL</td><td>C98220</td><td>JLC substitution</td></tr>
+        <tr><td>SW1–SW12</td><td>Low-profile switch</td><td>Work Louder wrk. LP1 / Gateron footprint</td><td>consigned</td><td>JLC manual/THT</td></tr>
+        <tr><td>ENC1</td><td>Encoder</td><td>Alps EC11E09444A8</td><td>C1322538</td><td>JLC manual/THT</td></tr>
+        <tr><td>JOY1</td><td>Joystick</td><td>Alps RKJXY1000006 with knob</td><td>consigned</td><td>JLC mechanical + FFC</td></tr>
+      </tbody></table>
+      <div class="turnkey">
+        <span class="stamp"><i class="dot"></i>zero soldering at home</span>
+        <h3>JLC can finish the electronics</h3>
+        <p>The production route is now Standard PCBA on both sides, with specialty parts shipped directly into JLC's consigned-parts inventory. JLC manually installs the switches and encoder, fits the joystick, flashes the STM32, runs the supplied USB control test, and installs caps on the PRIMARY unit. The customer only closes the CNC enclosure with four screws after first-article fit approval.</p>
+        <div class="turnkey-grid">
+          <div class="turnkey-step"><span class="acid">01 / SOURCE</span><b>Consign special parts</b><small>One WRK-LP1 pack, four RKJXY joysticks, one keycap set, and one dial cap ship directly to JLC.</small></div>
+          <div class="turnkey-step"><span class="acid">02 / BUILD</span><b>Both-side PCBA</b><small>JLC places SMD parts and USB-C, then manually solders 12 switches and the encoder.</small></div>
+          <div class="turnkey-step"><span class="acid">03 / VERIFY</span><b>Flash + FCT</b><small>Program the release image, exercise 20 HID events, inspect all 24 RGB emitters, and save evidence.</small></div>
+          <div class="turnkey-step"><span class="acid">04 / DELIVER</span><b>Primary + spare</b><small>One cosmetically completed control-pad PCBA, one programmed spare, and three bare reserve boards.</small></div>
+        </div>
+        <p class="warning"><b>Live turnkey cart:</b> JLC job Y5 / SMT026071763199-3086316A now holds five PCBs and two both-side Standard PCBA units. The captured base is <b>$193.01</b> ($81.40 PCB + $111.61 PCBA). Function testing, programming/manual work, the PCBA remark, and consigned-part procurement remain quote-after-review, so $193.01 is a floor rather than the finished-device total.</p>
+      </div>
+      <div class="quote" style="margin-top:22px"><div class="quote-shot"><img src="docs/assets/jlcpcb/turnkey_quote_final.png" alt="JLCPCB both-side Standard PCBA charge details"><img src="docs/assets/jlcpcb/turnkey_quote_total.png" alt="JLCPCB function-test and engineering-review quote items" style="margin-top:10px"></div><div><div class="eyebrow">JLCPCB / live turnkey cart</div><div class="price" style="margin:16px 0">$193.01 <small>/ captured base</small></div><h3 style="font:900 30px/1 var(--display);margin:16px 0">THE HAND WORK IS IN THE FACTORY BRIEF</h3><p class="muted">Both-side Standard PCBA, depaneling, photo confirmation, functional testing, and the complete 1.1 MB factory handoff are saved in the live JLC job. All 16 catalog groups passed the BOM matcher. Consigned switches and mechanical controls are called out in the attached SOP for manual assembly and engineering review.</p></div></div>
+      <p class="callout"><b>Future Bluetooth compatibility:</b> housing and fasteners do not depend on the STM32F072. The lower volume and port keep-outs remain available for a replacement ESP32-S3/charging PCB, battery, and FFC; the current wired PCB remains a single monolithic board rather than a separate controller module.</p>
+      <div class="quote" style="margin-top:32px"><div class="quote-shot"><img id="pcb-quote-image" src="docs/assets/jlcpcb/pcba_final_total.png" alt="JLCPCB baseline PCBA quote"></div><div><div class="eyebrow">JLCPCB / baseline cart</div><div class="price" id="pcb-quote-price" style="margin:16px 0">$173.65 <small>/ partial baseline, before shipping</small></div><p class="muted" id="pcb-quote-note">PCB $81.40 + bottom-side Standard PCBA $92.25. This saved price verifies the six-layer board and 15/15 bottom-side groups, but it does not include turnkey specialty-part assembly or testing. Whole baseline cart: $347.21 merchandise + $29.69 shipping = <b>$376.90</b>. Do not treat that number as the final finished-device price.</p></div></div>
+    </div></section>
+
+    <section><div class="wrap">
+      <div class="section-head"><div><div class="eyebrow">07 / firmware</div><h2>USB HID ready</h2></div><p class="section-note">TinyUSB firmware was built with Arm GNU Toolchain 15.2 for the STM32F072CBT6. BIN/HEX/ELF files and checksums are ready; functional verification on a physical Rev A2 board is still required.</p></div>
+      <div class="facts">
+        <div class="fact"><span class="confidence confirmed">build verified</span><b>BIN / HEX</b><small>ready for SWD</small></div>
+        <div class="fact"><span class="confidence inferred">prototype</span><b>F13–F24</b><small>neutral key map</small></div>
+        <div class="fact"><span class="confidence confirmed">compiled</span><b>16,548 B</b><small>flash / 12.63%</small></div>
+        <div class="fact"><span class="confidence confirmed">compiled</span><b>2,448 B</b><small>RAM / 14.94%</small></div>
+      </div>
+    </div></section>
+
+    <section id="files"><div class="wrap">
+      <div class="section-head"><div><div class="eyebrow">08 / handoff</div><h2>Order files</h2></div><p class="section-note">All sources are local and reproducible. Before payment, open the STEP and Gerber files in an independent viewer and verify every critical fit against the selected physical components.</p></div>
+      <div class="downloads">
+        <a class="download" href="fusion/Codex_Micro_RevA.f3d"><b>Fusion 360 / F3D</b><small>exported archive of the saved Codex assembly</small></a>
+        <a class="download" href="cnc/drawings/CM2_CNC_Drawing_Pack_RevA.pdf"><b>CNC drawing pack / PDF</b><small>4 controlled sheets: dimensions, material, finish, acceptance</small></a>
+        <a class="download" href="cnc/STEP/CM2-001_upper_housing.step"><b>CM2-001 upper / STEP</b><small>108 × 108 × 10.3 / PC, PMMA or wood</small></a>
+        <a class="download" href="cnc/STEP/CM2-002_bottom_weight.step"><b>CM2-002 wedge / STEP</b><small>Ø94 / 5° / aluminum 6061-T6</small></a>
+        <a class="download" href="cnc/STEP/CM2-003_optional_lightpipe.step"><b>CM2-003 light pipe / STEP</b><small>optional frosted PMMA insert</small></a>
+        <a class="download" href="cnc/STEP/CM2-004_joystick_cap.step"><b>CM2-004 joystick cap / STEP</b><small>POM fit prototype, then silicone</small></a>
+        <a class="download" href="electronics/production/codex_micro_wired_revA_gerbers.zip"><b>Wired Rev A2 / Gerber ZIP</b><small>6-layer 90 × 90 mm fabrication package</small></a>
+        <a class="download" href="electronics/production/codex_micro_wired_revA_jlc_bom.csv"><b>JLC assembly / BOM CSV</b><small>16 BOM groups / current LCSC mapping</small></a>
+        <a class="download" href="electronics/production/codex_micro_wired_revA_jlc_cpl.csv"><b>JLC assembly / CPL CSV</b><small>57 machine placements</small></a>
+        <a class="download" href="electronics/production/codex_micro_wired_revA_turnkey_bom.csv"><b>Turnkey assembly / BOM CSV</b><small>both-side SMD + manual controls + consigned parts</small></a>
+        <a class="download" href="electronics/production/codex_micro_wired_revA_turnkey_cpl.csv"><b>Turnkey assembly / CPL CSV</b><small>74 placements including switches and controls</small></a>
+        <a class="download" href="electronics/production/codex_micro_wired_revA_consigned_parts.csv"><b>Consigned parts / CSV</b><small>direct-to-JLC purchasing and install quantities</small></a>
+        <a class="download" href="electronics/production/CODEX_KEYBORED_RevA2_TURNKEY_SOP.md"><b>Turnkey assembly SOP</b><small>programming, secondary operations, test and acceptance</small></a>
+        <a class="download" href="firmware/factory_key_test.html"><b>Factory control test</b><small>self-contained 20-input USB HID acceptance tool</small></a>
+        <a class="download" href="electronics/production/codex_micro_wired_revA_hand_assembly.csv"><b>Baseline omissions / CSV</b><small>legacy bottom-only quote gaps; assign these to the contract assembler, not the customer</small></a>
+        <a class="download" href="electronics/production/netlist/CODEX_KEYBORED_RevA2.ipc"><b>IPC-D-356 / netlist</b><small>machine-readable final connectivity</small></a>
+        <a class="download" href="output/pdf/CODEX_KEYBORED_RevA2_schematic.pdf"><b>Principle schematic / PDF</b><small>3 sheets: USB/MCU, inputs, RGB/build gate</small></a>
+        <a class="download" href="firmware/stm32/release/codeks_keybored_revA.bin"><b>Firmware / BIN</b><small>STM32F072 TinyUSB HID bring-up image</small></a>
+        <a class="download" href="firmware/stm32/release/codeks_keybored_revA.hex"><b>Firmware / HEX</b><small>SWD-friendly Intel HEX image</small></a>
+      </div>
+    </div></section>
+
+    <section><div class="wrap">
+      <div class="section-head"><div><div class="eyebrow">09 / provenance</div><h2>Sources &amp; limits</h2></div><p class="section-note">This is not leaked CAD and not an official product file. Geometry was reconstructed from public renders and published specifications; branded icons are included only as private-prototype references.</p></div>
+      <ul class="sources">
+        <li><a href="https://openai.com/supply/co-lab/work-louder/">OpenAI Supply Co × Work Louder — official product page</a></li>
+        <li><a href="https://worklouder.cc/creator-micro-2">Work Louder Creator Micro 2 — platform specifications</a></li>
+        <li><a href="https://worklouder.cc/wrk-lp1-switches">Work Louder wrk. LP1 switches</a></li>
+        <li><a href="https://worklouder.cc/wrk-mx-pure">Work Louder wrk. MX Pure keycaps</a></li>
+        <li><a href="https://tech.alpsalpine.com/e/products/detail/RKJXY100000A/">Alps Alpine RKJXY100000A official specification</a></li>
+        <li><a href="https://www.analog.com/en/products/MAX77972.html">Analog Devices MAX77972 official page</a></li>
+        <li><a href="https://www.st.com/resource/en/datasheet/stm32f072cb.pdf">STMicroelectronics STM32F072CB datasheet</a></li>
+        <li><a href="https://www.lcsc.com/product-detail/Microcontrollers-MCU-MPU-SOC_STMicroelectronics-STM32F072CBT6_C81720.html">LCSC C81720 / STM32F072CBT6</a></li>
+        <li><a href="https://opendata.fcc.gov/resource/3b3k-34jp.json">FCC EAS official grantee dataset</a></li>
+        <li><a href="https://www.ised-isde.canada.ca/site/spectrum-management-system/en/equipment-certification-and-registration-services">ISED certification search</a></li>
+        <li><a href="https://jlcpcb.com/">JLCPCB / live manufacturing quote</a></li>
+        <li><a href="https://jlccnc.com/">JLC CNC / live manufacturing quote</a></li>
+      </ul>
+      <p class="warning">Do not freeze before physical fit-check: the exact internal housing step, screw length, threads/inserts, 2U stabilizer, encoder shaft, joystick-cap fit, and exact planar-joystick marking. Any commercial or public version requires original legends and branding.</p>
+    </div></section>
+  </main>
+  <footer><div class="wrap"><div class="eyebrow">CODEX KEYBORED / WORK LOAFER EDITION / REV A2</div><p>Prepared 2026-07-17 · Fusion 360 + KiCad + TinyUSB · private parody prototype dossier · not affiliated with or endorsed by OpenAI or Work Louder.</p></div></footer>
+  <script>
+    document.documentElement.classList.add('js');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+    document.querySelectorAll('section').forEach((section) => {
+      section.classList.add('reveal');
+      observer.observe(section);
+    });
+  </script>
+</body>
 </html>

@@ -1,8 +1,8 @@
 <!doctype html>
-<html lang="ru">
+<html lang="en">
 <head>
 <meta charset="utf-8">
-<title>CODEX KEYBORED — принципиальная схема Rev A2</title>
+<title>CODEX KEYBORED — principle schematic, Rev A2</title>
 <style>
   @page { size: A3 landscape; margin: 10mm; }
   * { box-sizing: border-box; }
@@ -48,17 +48,17 @@
 <body>
 
 <section class="sheet">
-  <h1>CODEX KEYBORED</h1><h2>01 / USB, питание и controller island</h2>
+  <h1>CODEX KEYBORED</h1><h2>01 / USB, power, and controller island</h2>
   <div class="meta">REV A2 · WIRED<br>STM32F072CBT6 · 6 LAYERS<br>90 × 90 × 1.6 mm</div>
 
   <div class="box usb" style="left:70px;top:185px;width:210px;height:180px"><strong>J1 · USB-C</strong><small>TYPE-C-31-M-12<br>A6/B6 → D+<br>A7/B7 → D−<br>A5/B5 → CC1/CC2<br>VBUS → +5V</small></div>
-  <div class="box" style="left:345px;top:215px;width:205px;height:120px"><strong>U4 · USBLC6-2SC6</strong><small>двухканальная ESD-защита<br>VBUS clamp · GND</small></div>
+  <div class="box" style="left:345px;top:215px;width:205px;height:120px"><strong>U4 · USBLC6-2SC6</strong><small>dual-channel ESD protection<br>VBUS clamp · GND</small></div>
   <div class="box accent" style="left:655px;top:160px;width:410px;height:455px"><strong>U1 · STM32F072CBT6</strong><small style="columns:2;column-gap:25px;margin-top:18px">
     PA0 · JOY_X<br>PA1 · JOY_Y<br>PA2 · ROW0<br>PA3 · ROW1<br>PA4 · ROW2<br>PA5 · ROW3<br>PA6 · COL0<br>PA7 · COL1<br>PB0 · COL2<br>PB1 · COL3<br>PB2 · ENC_A<br>PB10 · ENC_B<br>PB11 · ENC_SW<br>PB12 · TOUCH<br>PB13 · RGB_3V3<br>PA11 · USB_DM<br>PA12 · USB_DP<br>PA13 · SWDIO<br>PA14 · SWCLK<br>NRST · R3/SW13<br>BOOT0 · R4/SW14<br>HSI48 + CRS<br>128 KiB flash<br>48 MHz Cortex-M0
   </small></div>
   <div class="box power" style="left:1160px;top:175px;width:220px;height:150px"><strong>U3 · ME6211C33</strong><small>+5V → +3V3 / 500 mA<br>C2 10µ · input<br>C1 10µ · output<br>CE tied high</small></div>
-  <div class="box" style="left:1145px;top:405px;width:250px;height:180px"><strong>LOCAL BYPASS</strong><small>C3–C7 · 100n / 0402<br>C8 · 1µ / VDDA<br>C9 · 4.7µ bulk<br>каждый VDD/VDDA → GND plane</small></div>
-  <div class="box" style="left:330px;top:480px;width:235px;height:150px"><strong>R1 / R2 · USB-C CC</strong><small>CC1 → 5.1k → GND<br>CC2 → 5.1k → GND<br>режим USB 2.0 device</small></div>
+  <div class="box" style="left:1145px;top:405px;width:250px;height:180px"><strong>LOCAL BYPASS</strong><small>C3–C7 · 100n / 0402<br>C8 · 1µ / VDDA<br>C9 · 4.7µ bulk<br>each VDD/VDDA → GND plane</small></div>
+  <div class="box" style="left:330px;top:480px;width:235px;height:150px"><strong>R1 / R2 · USB-C CC</strong><small>CC1 → 5.1k → GND<br>CC2 → 5.1k → GND<br>USB 2.0 device mode</small></div>
   <div class="box" style="left:655px;top:700px;width:410px;height:120px"><strong>SWD + SERVICE</strong><small>TP1 SWCLK · TP2 SWDIO · TP3 +3V3 · TP4 GND<br>SW13: NRST→GND · SW14: BOOT0→+3V3 · R3/R4: 10k bias</small></div>
 
   <div class="net usb" style="left:280px;top:245px;width:65px"></div><div class="label usb" style="left:285px;top:225px">USB_DP/DM_CONN</div>
@@ -67,7 +67,7 @@
   <div class="net power" style="left:1065px;top:250px;width:95px"></div><div class="label power" style="left:1080px;top:230px">+3V3</div>
   <div class="net gnd" style="left:180px;top:650px;width:1190px"></div><div class="label" style="left:181px;top:632px;color:#9aa695">GND · In1 plane + F/B pours</div>
 
-  <div class="note" style="left:70px;top:720px;width:470px">USB Full Speed работает без кварца: HSI48 непрерывно подстраивается CRS по USB SOF. Внешние последовательные резисторы D+/D− для STM32F072 не требуются; реверсивные пары пересекаются на SIGNAL_1/SIGNAL_2.</div>
+  <div class="note" style="left:70px;top:720px;width:470px">USB Full Speed runs crystal-free: CRS continuously trims HSI48 from USB SOF. STM32F072 requires no external D+/D− series resistors; reversible pairs cross on SIGNAL_1/SIGNAL_2.</div>
   <div class="footer"><span>PRESS KEYS, SHIP BUGS</span><span>SHEET 1 / 3 · electrical connectivity derived from final PCB</span></div>
 </section>
 

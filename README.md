@@ -27,18 +27,18 @@
 
 ---
 
-<h1 align="center">ЭТО НЕ ДИСКЛЕЙМЕР.<br>ЭТО ВЕСЬ СМЫСЛ.</h1>
+<h1 align="center">THIS IS NOT A DISCLAIMER.<br>THIS IS THE WHOLE POINT.</h1>
 
-<h1 align="center">АБСОЛЮТНО ВСЁ ЗДЕСЬ — 100% VIBE-CODED.</h1>
+<h1 align="center">ABSOLUTELY EVERYTHING HERE IS 100% VIBE-CODED.</h1>
 
 <h1 align="center">
-  ОТ ПЕРВОГО ПРОМПТА — ДО FUSION 360, KICAD, GERBER, ПРОШИВКИ<br>
-  И РЕАЛЬНОЙ ЗАГРУЗКИ В JLCPCB + JLCCNC.
+  FROM THE FIRST PROMPT TO FUSION 360, KICAD, GERBERS, FIRMWARE,<br>
+  AND A REAL UPLOAD INTO JLCPCB + JLCCNC.
 </h1>
 
 <h2 align="center">
-  THIS IS NOT A DISCLAIMER. THIS IS THE PRODUCT STORY.<br>
-  ONE CONTINUOUS VIBE — FROM A PUBLIC PRODUCT IMAGE<br>
+  THIS IS THE PRODUCT STORY: ONE CONTINUOUS VIBE<br>
+  FROM A PUBLIC PRODUCT IMAGE<br>
   TO A REAL, QUOTED, FACTORY-READY HARDWARE STACK.
 </h2>
 

@@ -3,6 +3,8 @@ import { mkdir } from "node:fs/promises";
 import { resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 
+await import("./build_root.mjs");
+
 const root = resolve(".");
 const outDir = resolve(root, "output/pdf");
 const previewDir = resolve(root, "docs/generated");

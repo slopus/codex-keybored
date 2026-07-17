@@ -7,7 +7,7 @@
 - Service: JLCPCB **Standard PCBA**, both sides.
 - Fabrication: 6-layer FR-4, 90 × 90 × 1.6 mm, white mask, black silk, ENIG.
 - PCB quantity: 5. PCBA quantity: 2.
-- Use `codex_micro_wired_revA_turnkey_bom.csv` and `codex_micro_wired_revA_turnkey_cpl.csv`.
+- Submit `codex_micro_wired_revA_jlc_bom.csv` and `codex_micro_wired_revA_jlc_cpl.csv` to JLC's automatic catalog matcher. Use the expanded `turnkey` BOM/CPL and consigned-parts CSV as the manual-assembly engineering reference.
 - Depanel and remove JLC edge rails before delivery.
 - Enable component photo confirmation, programming/function test, and a PCBA remark referencing this SOP.
 - Customer-consigned parts must be received and booked into the JLC parts library before production.
@@ -53,4 +53,4 @@ After dimensional first-article approval, the customer only installs the complet
 
 ## Quote status
 
-The existing `$173.65` JLC line item is a bottom-only baseline and is **not** the turnkey price. The final price is pending JLC engineering review of the consigned WRK-LP1 switches, the RKJXY secondary operation, programming, and functional testing.
+JLC cart job Y5 / `SMT026071763199-3086316A` is configured for five PCBs and two both-side Standard PCBA units. Its captured base is `$193.01` (`$81.40` PCB + `$111.61` PCBA). Function testing, the PCBA remark/manual work, and consigned WRK-LP1/RKJXY operations remain quote-after-review; the base is not the final turnkey price.

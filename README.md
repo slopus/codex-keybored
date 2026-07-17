@@ -13,14 +13,14 @@ violations and 0 unconnected nets; its Gerbers, drill files, IPC-D-356 netlist,
 BOM/CPL, three-sheet principle schematic, and build-verified firmware are under
 `electronics/production`, `output/pdf`, and `firmware/stm32/release`.
 
-The signed-in JLC cart contains four CNC parts plus five PCB and five bottom-side
-PCBA units. On 2026-07-17 JLC quoted $347.21 merchandise + $29.69 estimated
-shipping = $376.90. That is a **partial baseline quote**, not the price of a
-finished device. The end-to-end route uses JLC Standard PCBA on both sides,
-customer-consigned specialty controls, manual/through-hole assembly, firmware
-programming, and functional testing. Its binding price remains subject to JLC
-engineering review. This is a first-article prototype: fabricated hardware has
-not yet completed electrical bring-up or dimensional fit-check.
+The signed-in JLC cart contains four CNC parts, the retained Y4 bottom-side
+baseline, and a new Y5 turnkey job with five PCBs plus two both-side Standard
+PCBA units. On 2026-07-17 JLC calculated the Y5 base at **$193.01** ($81.40 PCB
++ $111.61 PCBA). Function testing, programming/manual work, the PCBA remark,
+and consigned-part procurement remain quote-after-review, so that figure is a
+floor rather than the price of a finished device. This is a first-article
+prototype: fabricated hardware has not yet completed electrical bring-up or
+dimensional fit-check.
 
 ## Turnkey electronics route
 
@@ -37,12 +37,11 @@ handoff is one complete PRIMARY unit and one electrically tested spare PCBA:
 - The customer only closes the CNC enclosure with the controlled screws after
   first-article fit approval.
 
-The production inputs are
-`electronics/production/codex_micro_wired_revA_turnkey_bom.csv`,
-`electronics/production/codex_micro_wired_revA_turnkey_cpl.csv`, the consigned
-parts CSV, and `CODEX_KEYBORED_RevA2_TURNKEY_SOP.md`. The existing
-`*_jlc_bom.csv`, `*_jlc_cpl.csv`, and bottom-only cart screenshots are retained
-as quote evidence and should not be mistaken for the turnkey order.
+The automatic JLC matcher uses `*_jlc_bom.csv` and `*_jlc_cpl.csv` for the 16
+catalog groups. The expanded `*_turnkey_bom.csv`, `*_turnkey_cpl.csv`, consigned
+parts CSV, and `CODEX_KEYBORED_RevA2_TURNKEY_SOP.md` are the engineering/manual
+assembly handoff attached to the job. The Y4 bottom-only cart screenshots are
+retained as historical quote evidence and should not be mistaken for Y5.
 
 ## Confidence legend
 

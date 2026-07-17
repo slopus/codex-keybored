@@ -48,12 +48,13 @@ from that final connectivity; the IPC-D-356 file is the machine-readable netlist
 - `production/netlist/CODEX_KEYBORED_RevA2.ipc` — IPC-D-356 connectivity.
 - `production/schematic/CODEX_KEYBORED_RevA2_schematic.pdf` — principle schematic.
 
-The saved JLC cart assembles only the **bottom SMD side**, so its $173.65 PCB +
-PCBA line is quote evidence rather than the final production route. For turnkey
-delivery, select Standard PCBA / both sides and upload the `turnkey` BOM/CPL.
-JLC then places J1, manually installs `SW1–SW12` and the encoder from consigned
-inventory, fits the joystick/FFC, flashes both assembled boards, and runs the
-supplied factory test. These are contract-assembly operations—not customer work.
+JLC cart job Y5 / `SMT026071763199-3086316A` is Standard PCBA on **both sides**:
+five PCBs and two assembled boards. Its automatic matcher uses the catalog-only
+`*_jlc_bom.csv` and `*_jlc_cpl.csv` and confirmed all 16 groups. The expanded
+`turnkey` BOM/CPL and consigned-parts CSV are factory engineering references for
+manual installation of `SW1–SW12`, the encoder, and the joystick/FFC. The
+captured base is $193.01; programming, FCT, and manual engineering remain
+quote-after-review. These are contract-assembly operations—not customer work.
 Review every polarity/rotation and obtain JLC engineering approval before
 confirming a paid order.
 

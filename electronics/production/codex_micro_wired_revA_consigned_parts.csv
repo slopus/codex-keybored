@@ -1,0 +1,5 @@
+Item,Manufacturer Part #,Order Qty,Install Qty,Destination,Source,Purpose
+Low-profile switch,WRK-LP1,106,24 on 2 PCBAs,JLCPCB consigned-parts warehouse,https://worklouder.cc/wrk-lp1-switches,12 switches per board plus factory spares
+Planar joystick with stock knob,RKJXY1000006,4,2 on 2 PCBAs,JLCPCB consigned-parts warehouse,https://akizukidenshi.com/catalog/g/g114675,In-stock electrical/mechanical sibling of RKJXY100000A
+Blank/icon keycap set,WRK-MX-PURE,1,1 finished device,JLCPCB secondary mechanical assembly,https://worklouder.cc/wrk-mx-pure,Fit after electrical test on the PRIMARY unit
+Dial cap,WRK-DIAL-2,1,1 finished device,JLCPCB secondary mechanical assembly,https://worklouder.cc/wrk-dial-2,Fit after encoder test on the PRIMARY unit

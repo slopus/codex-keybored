@@ -1,0 +1,19 @@
+Designator,Part / qualification note,Qty
+ENC1,"Clickable vertical encoder, 6 mm shaft; qualify against dial",1
+J1,Top-side USB-C; hand solder for bottom-side-only PCBA quote,1
+J2,"Molex 200528-0040 4-way 1.0 mm FFC, if joystick tail requires it",1
+JOY1,Alps Alpine RKJXY100000A or qualified clone,1
+SW1,Gateron KS-33 / Work Louder wrk.LP1,1
+SW2,Gateron KS-33 / Work Louder wrk.LP1,1
+SW3,Gateron KS-33 / Work Louder wrk.LP1,1
+SW4,Gateron KS-33 / Work Louder wrk.LP1,1
+SW5,Gateron KS-33 / Work Louder wrk.LP1,1
+SW6,Gateron KS-33 / Work Louder wrk.LP1,1
+SW7,Gateron KS-33 / Work Louder wrk.LP1,1
+SW8,Gateron KS-33 / Work Louder wrk.LP1,1
+SW9,Gateron KS-33 / Work Louder wrk.LP1,1
+SW10,Gateron KS-33 / Work Louder wrk.LP1,1
+SW11,Gateron KS-33 / Work Louder wrk.LP1,1
+SW12,Gateron KS-33 / Work Louder wrk.LP1,1
+SW13,"TL3342-compatible RESET button, optional",1
+SW14,"TL3342-compatible BOOTSEL button, optional",1

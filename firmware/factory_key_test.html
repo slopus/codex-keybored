@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>CODEX KEYBORED — Factory Key Test</title>
+  <style>
+    :root{color-scheme:dark;--bg:#080a08;--panel:#141814;--line:#30382f;--ink:#eef2e9;--muted:#899284;--acid:#c8ff3d;--fail:#ff645f}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 ui-monospace,SFMono-Regular,Menlo,monospace}.wrap{max-width:1100px;margin:auto;padding:44px 26px 70px}h1{font:900 clamp(42px,8vw,92px)/.84 Impact,"Avenir Next Condensed",sans-serif;letter-spacing:-.05em;margin:14px 0 26px;text-transform:uppercase}h1 span{display:block;color:var(--acid)}p{color:var(--muted);max-width:780px}.status{display:flex;align-items:center;gap:10px;margin:28px 0;padding:14px;border:1px solid var(--line);background:var(--panel)}.dot{width:10px;height:10px;border-radius:50%;background:var(--fail)}.status.pass .dot{background:var(--acid);box-shadow:0 0 14px var(--acid)}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.key{min-height:104px;padding:14px;border:1px solid var(--line);background:var(--panel);display:flex;flex-direction:column;justify-content:space-between}.key b{font-size:20px}.key small{color:var(--muted)}.key.pass{border-color:var(--acid);background:#1a2414}.key.pass b,.key.pass small{color:var(--acid)}.controls{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}button{border:1px solid var(--line);background:transparent;color:var(--ink);padding:11px 14px;font:inherit;cursor:pointer}button:hover{border-color:var(--acid)}@media(max-width:700px){.grid{grid-template-columns:repeat(2,1fr)}}
+  </style>
+</head>
+<body tabindex="0">
+  <main class="wrap">
+    <div>FACTORY FCT / REV A2</div>
+    <h1>Codex<span>Keybored</span></h1>
+    <p>Connect the programmed PCBA over USB, click anywhere on this page, then exercise every key, encoder direction, encoder push, joystick direction, and touch pad. Each expected HID code turns green and stays latched.</p>
+    <div class="status" id="status"><i class="dot"></i><b id="statusText">0 / 20 controls observed</b></div>
+    <section class="grid" id="grid"></section>
+    <div class="controls"><button id="reset">Reset test</button><button id="fullscreen">Fullscreen</button></div>
+  </main>
+  <script>
+    const expected = [
+      ['F13','SW1'],['F14','SW2'],['F15','SW3'],['F16','SW4'],['F17','SW5'],['F18','SW6'],
+      ['F19','SW7'],['F20','SW8'],['F21','SW9'],['F22','SW10'],['F23','SW11 / 2U'],['F24','SW12'],
+      ['NumpadEnter','ENC PUSH'],['PageUp','ENC CW'],['PageDown','ENC CCW'],
+      ['ArrowLeft','JOY LEFT'],['ArrowRight','JOY RIGHT'],['ArrowUp','JOY UP'],['ArrowDown','JOY DOWN'],['F12','TOUCH']
+    ];
+    const seen = new Set();
+    const grid = document.querySelector('#grid');
+    const status = document.querySelector('#status');
+    const statusText = document.querySelector('#statusText');
+    expected.forEach(([code,label])=>{const el=document.createElement('div');el.className='key';el.dataset.code=code;el.innerHTML=`<small>${label}</small><b>${code}</b>`;grid.append(el)});
+    function render(){document.querySelectorAll('.key').forEach(el=>el.classList.toggle('pass',seen.has(el.dataset.code)));statusText.textContent=`${seen.size} / ${expected.length} controls observed`;status.classList.toggle('pass',seen.size===expected.length);if(seen.size===expected.length)statusText.textContent='PASS / ALL CONTROLS OBSERVED'}
+    addEventListener('keydown',event=>{if(expected.some(([code])=>code===event.code)){event.preventDefault();seen.add(event.code);render()}});
+    document.querySelector('#reset').addEventListener('click',()=>{seen.clear();render();document.body.focus()});
+    document.querySelector('#fullscreen').addEventListener('click',()=>document.documentElement.requestFullscreen?.());
+    document.body.focus();render();
+  </script>
+</body>
+</html>

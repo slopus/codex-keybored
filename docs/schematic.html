@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>CODEX KEYBORED — принципиальная схема Rev A2</title>
+<style>
+  @page { size: A3 landscape; margin: 10mm; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #111411; color: #eff4e9; font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+  .sheet { width: 1500px; height: 1010px; margin: 0 auto; padding: 44px 50px; position: relative; page-break-after: always; overflow: hidden; background:
+    linear-gradient(rgba(161,255,60,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(161,255,60,.035) 1px, transparent 1px), #111411;
+    background-size: 25px 25px; }
+  .sheet:last-child { page-break-after: auto; }
+  h1 { margin: 0; font: 800 42px/1 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: -2px; }
+  h2 { margin: 7px 0 0; color: #a5ff3d; font: 600 15px/1.3 ui-monospace, monospace; letter-spacing: 2px; text-transform: uppercase; }
+  .meta { position: absolute; right: 50px; top: 46px; color: #899582; text-align: right; font: 12px/1.5 ui-monospace, monospace; }
+  .box { position: absolute; border: 2px solid #52604d; border-radius: 12px; background: #171c17; padding: 15px; z-index: 2; }
+  .box strong { display: block; color: #fff; font: 800 16px/1.1 ui-monospace, monospace; }
+  .box small { display: block; margin-top: 6px; color: #aab5a4; font: 12px/1.35 ui-monospace, monospace; }
+  .box.accent { border-color: #a5ff3d; box-shadow: inset 0 0 0 1px rgba(165,255,61,.15); }
+  .box.usb { border-color: #67d5ff; }
+  .box.power { border-color: #ffcc4d; }
+  .net { position: absolute; height: 2px; transform-origin: left center; z-index: 1; background: #a5ff3d; }
+  .net.usb { background: #67d5ff; }
+  .net.power { background: #ffcc4d; }
+  .net.gnd { background: #768272; }
+  .label { position: absolute; padding: 3px 7px; border-radius: 5px; background: #111411; color: #a5ff3d; font: 11px/1 ui-monospace, monospace; z-index: 3; white-space: nowrap; }
+  .label.usb { color: #67d5ff; }
+  .label.power { color: #ffcc4d; }
+  .note { position: absolute; padding: 14px 16px; border-left: 3px solid #a5ff3d; background: rgba(165,255,61,.06); color: #cbd4c5; font: 13px/1.45 ui-monospace, monospace; }
+  table { width: 100%; border-collapse: collapse; font: 12px/1.35 ui-monospace, monospace; }
+  th { color: #a5ff3d; text-align: left; font-weight: 700; border-bottom: 1px solid #596453; padding: 8px; }
+  td { border-bottom: 1px solid #2d352c; padding: 8px; color: #dfe6da; }
+  .panel { position: absolute; border: 1px solid #4b5747; border-radius: 12px; background: rgba(23,28,23,.94); padding: 18px; }
+  .panel h3 { margin: 0 0 12px; font: 800 15px/1 ui-monospace, monospace; color: #fff; }
+  .matrix { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .key { min-height: 92px; border: 1px solid #64715f; border-radius: 10px; padding: 10px; background: #151a15; }
+  .key.off { opacity: .25; border-style: dashed; }
+  .key b { font: 800 14px/1 ui-monospace, monospace; color: #fff; }
+  .key span { display: block; margin-top: 8px; color: #abb7a4; font: 11px/1.4 ui-monospace, monospace; }
+  .rail { display: flex; gap: 9px; align-items: center; flex-wrap: wrap; }
+  .pixel { width: 84px; height: 64px; border: 1px solid #5d6a58; border-radius: 8px; padding: 9px; background: #151a15; font: 10px/1.35 ui-monospace, monospace; }
+  .pixel b { color: #fff; font-size: 12px; }
+  .arrow { color: #a5ff3d; font: 20px/1 ui-monospace, monospace; }
+  .footer { position: absolute; bottom: 25px; left: 50px; right: 50px; border-top: 1px solid #44503f; padding-top: 9px; display: flex; justify-content: space-between; color: #778271; font: 11px/1 ui-monospace, monospace; }
+</style>
+</head>
+<body>
+
+<section class="sheet">
+  <h1>CODEX KEYBORED</h1><h2>01 / USB, питание и controller island</h2>
+  <div class="meta">REV A2 · WIRED<br>STM32F072CBT6 · 6 LAYERS<br>90 × 90 × 1.6 mm</div>
+
+  <div class="box usb" style="left:70px;top:185px;width:210px;height:180px"><strong>J1 · USB-C</strong><small>TYPE-C-31-M-12<br>A6/B6 → D+<br>A7/B7 → D−<br>A5/B5 → CC1/CC2<br>VBUS → +5V</small></div>
+  <div class="box" style="left:345px;top:215px;width:205px;height:120px"><strong>U4 · USBLC6-2SC6</strong><small>двухканальная ESD-защита<br>VBUS clamp · GND</small></div>
+  <div class="box accent" style="left:655px;top:160px;width:410px;height:455px"><strong>U1 · STM32F072CBT6</strong><small style="columns:2;column-gap:25px;margin-top:18px">
+    PA0 · JOY_X<br>PA1 · JOY_Y<br>PA2 · ROW0<br>PA3 · ROW1<br>PA4 · ROW2<br>PA5 · ROW3<br>PA6 · COL0<br>PA7 · COL1<br>PB0 · COL2<br>PB1 · COL3<br>PB2 · ENC_A<br>PB10 · ENC_B<br>PB11 · ENC_SW<br>PB12 · TOUCH<br>PB13 · RGB_3V3<br>PA11 · USB_DM<br>PA12 · USB_DP<br>PA13 · SWDIO<br>PA14 · SWCLK<br>NRST · R3/SW13<br>BOOT0 · R4/SW14<br>HSI48 + CRS<br>128 KiB flash<br>48 MHz Cortex-M0
+  </small></div>
+  <div class="box power" style="left:1160px;top:175px;width:220px;height:150px"><strong>U3 · ME6211C33</strong><small>+5V → +3V3 / 500 mA<br>C2 10µ · input<br>C1 10µ · output<br>CE tied high</small></div>
+  <div class="box" style="left:1145px;top:405px;width:250px;height:180px"><strong>LOCAL BYPASS</strong><small>C3–C7 · 100n / 0402<br>C8 · 1µ / VDDA<br>C9 · 4.7µ bulk<br>каждый VDD/VDDA → GND plane</small></div>
+  <div class="box" style="left:330px;top:480px;width:235px;height:150px"><strong>R1 / R2 · USB-C CC</strong><small>CC1 → 5.1k → GND<br>CC2 → 5.1k → GND<br>режим USB 2.0 device</small></div>
+  <div class="box" style="left:655px;top:700px;width:410px;height:120px"><strong>SWD + SERVICE</strong><small>TP1 SWCLK · TP2 SWDIO · TP3 +3V3 · TP4 GND<br>SW13: NRST→GND · SW14: BOOT0→+3V3 · R3/R4: 10k bias</small></div>
+
+  <div class="net usb" style="left:280px;top:245px;width:65px"></div><div class="label usb" style="left:285px;top:225px">USB_DP/DM_CONN</div>
+  <div class="net usb" style="left:550px;top:275px;width:105px"></div><div class="label usb" style="left:554px;top:254px">PA11 / PA12</div>
+  <div class="net power" style="left:280px;top:345px;width:880px"></div><div class="label power" style="left:1040px;top:327px">+5V</div>
+  <div class="net power" style="left:1065px;top:250px;width:95px"></div><div class="label power" style="left:1080px;top:230px">+3V3</div>
+  <div class="net gnd" style="left:180px;top:650px;width:1190px"></div><div class="label" style="left:181px;top:632px;color:#9aa695">GND · In1 plane + F/B pours</div>
+
+  <div class="note" style="left:70px;top:720px;width:470px">USB Full Speed работает без кварца: HSI48 непрерывно подстраивается CRS по USB SOF. Внешние последовательные резисторы D+/D− для STM32F072 не требуются; реверсивные пары пересекаются на SIGNAL_1/SIGNAL_2.</div>
+  <div class="footer"><span>PRESS KEYS, SHIP BUGS</span><span>SHEET 1 / 3 · electrical connectivity derived from final PCB</span></div>
+</section>
+
+<section class="sheet">
+  <h1>KEY MATRIX + HUMAN INPUT</h1><h2>02 / 12 switches, encoder, joystick, touch</h2>
+  <div class="meta">SCAN: ROW LOW<br>COL INPUT_PULLUP<br>1N4148W PER KEY</div>
+
+  <div class="panel" style="left:55px;top:145px;width:960px;height:650px">
+    <h3>4 × 4 logical matrix · populated cells</h3>
+    <div class="matrix">
+      <div class="key off"><b>R0C0</b><span>not populated</span></div>
+      <div class="key"><b>SW1 · F13</b><span>ROW0 → switch → D1 → COL1</span></div>
+      <div class="key"><b>SW2 · F14</b><span>ROW0 → switch → D2 → COL2</span></div>
+      <div class="key off"><b>R0C3</b><span>joystick occupies cell</span></div>
+      <div class="key"><b>SW3 · F15</b><span>ROW1 → switch → D3 → COL0</span></div>
+      <div class="key"><b>SW4 · F16</b><span>ROW1 → switch → D4 → COL1</span></div>
+      <div class="key"><b>SW5 · F17</b><span>ROW1 → switch → D5 → COL2</span></div>
+      <div class="key"><b>SW6 · F18</b><span>ROW1 → switch → D6 → COL3</span></div>
+      <div class="key"><b>SW7 · F19</b><span>ROW2 → switch → D7 → COL0</span></div>
+      <div class="key"><b>SW8 · F20</b><span>ROW2 → switch → D8 → COL1</span></div>
+      <div class="key"><b>SW9 · F21</b><span>ROW2 → switch → D9 → COL2</span></div>
+      <div class="key"><b>SW10 · F22</b><span>ROW2 → switch → D10 → COL3</span></div>
+      <div class="key off"><b>R3C0</b><span>touch electrode</span></div>
+      <div class="key"><b>SW11 · F23</b><span>ROW3 → 2U switch → D11 → COL1</span></div>
+      <div class="key off"><b>R3C2</b><span>2U stabilizer field</span></div>
+      <div class="key"><b>SW12 · F24</b><span>ROW3 → switch → D12 → COL3</span></div>
+    </div>
+  </div>
+
+  <div class="box accent" style="left:1060px;top:145px;width:360px;height:160px"><strong>ENC1 · CLICKABLE</strong><small>A → PB2 · ENC_A<br>B → PB10 · ENC_B<br>C/S2 → GND<br>S1 → PB11 · ENC_SW</small></div>
+  <div class="box usb" style="left:1060px;top:335px;width:360px;height:175px"><strong>JOY1 + J2 · RKJXY</strong><small>pin 1 +3V3 · pin 2 GND<br>pin 3 Xout → PA0 / ADC0<br>pin 4 Yout → PA1 / ADC1<br>planar joystick with 4-wire FFC</small></div>
+  <div class="box power" style="left:1060px;top:540px;width:360px;height:210px"><strong>U6 · TTP223-BA6</strong><small>E1 14mm copper → pin 3 sensor<br>Q pin 1 → PB12 · TOUCH<br>pin 5 +3V3 · pin 2 GND<br>AHLB + TOG grounded: direct active-high<br>C10 100n local bypass</small></div>
+
+  <div class="note" style="left:80px;top:835px;width:1310px">13 mechanical inputs in the public product wording = 12 keyboard switches + encoder push. The touch electrode and two joystick axes are additional inputs. Firmware debounce integrator: 5 ms; encoder uses a quadrature transition table.</div>
+  <div class="footer"><span>WORK LOAFER EDITION // REV A2</span><span>SHEET 2 / 3</span></div>
+</section>
+
+<section class="sheet">
+  <h1>RGB + PIN MAP + BUILD GATE</h1><h2>03 / addressable lighting and production truth</h2>
+  <div class="meta">24 × SK6812MINI-E<br>5V DATA LEVEL<br>100µF BULK</div>
+
+  <div class="panel" style="left:55px;top:140px;width:1390px;height:235px">
+    <h3>Data chain</h3>
+    <div class="rail">
+      <div class="pixel"><b>PB13</b><br>RGB_3V3</div><span class="arrow">→</span>
+      <div class="pixel"><b>U5</b><br>74AHCT1G125<br>3.3 → 5V</div><span class="arrow">→</span>
+      <div class="pixel"><b>LED1</b><br>key 1</div><span class="arrow">→</span>
+      <div class="pixel"><b>LED2…11</b><br>keys 2–11</div><span class="arrow">→</span>
+      <div class="pixel"><b>LED12</b><br>key 12</div><span class="arrow">→</span>
+      <div class="pixel"><b>LED13…21</b><br>underglow ×9</div><span class="arrow">→</span>
+      <div class="pixel"><b>LED22…24</b><br>status ×3</div>
+    </div>
+    <div style="margin-top:17px;color:#c7d0c1;font:12px/1.4 ui-monospace,monospace">All pixels: pin 1 +5V · pin 3 GND · reverse-mount routed window 3.38 × 2.98 mm. C19 = 100µF/6.3V at LED rail. U5 OE is tied low.</div>
+  </div>
+
+  <div class="panel" style="left:55px;top:410px;width:690px;height:440px">
+    <h3>STM32F072CBT6 LQFP48 pin allocation</h3>
+    <table><thead><tr><th>Pin group</th><th>Signal</th><th>Function</th></tr></thead><tbody>
+      <tr><td>PA0 / PA1</td><td>JOY_X / JOY_Y</td><td>12-bit ADC</td></tr>
+      <tr><td>PA2…PA5</td><td>ROW0…ROW3</td><td>matrix row drive</td></tr>
+      <tr><td>PA6, PA7, PB0, PB1</td><td>COL0…COL3</td><td>matrix sense, pull-up</td></tr>
+      <tr><td>PB2 / PB10 / PB11</td><td>ENC_A/B/SW</td><td>quadrature + click</td></tr>
+      <tr><td>PB12 / PB13</td><td>TOUCH / RGB_3V3</td><td>touch input / LED data</td></tr>
+      <tr><td>PA11 / PA12</td><td>USB_DM / USB_DP</td><td>USB Full Speed</td></tr>
+      <tr><td>PA13 / PA14</td><td>SWDIO / SWCLK</td><td>program + debug</td></tr>
+      <tr><td>VBAT, VDDA, VDD×3</td><td>+3V3</td><td>local bypass C3–C9</td></tr>
+      <tr><td>VSSA, VSS×3</td><td>GND</td><td>dedicated In1 plane</td></tr>
+    </tbody></table>
+  </div>
+
+  <div class="panel" style="left:780px;top:410px;width:665px;height:440px">
+    <h3>Manufacturing gate</h3>
+    <table><tbody>
+      <tr><th>PCB</th><td>90 × 90 mm · 6 layer · 1.6 mm</td></tr>
+      <tr><th>Rules</th><td>0.15 mm route · 0.10 mm clearance</td></tr>
+      <tr><th>Vias</th><td>0.40/0.20 mm minimum through</td></tr>
+      <tr><th>Planes</th><td>In1 GND · In4 +5V · F/B GND pours</td></tr>
+      <tr><th>Touch</th><td>16.4 mm no-pour region under E1</td></tr>
+      <tr><th>DRC</th><td style="color:#a5ff3d;font-weight:800">0 violations · 0 unconnected</td></tr>
+      <tr><th>JLC assembly</th><td>57 placements · 16 BOM groups</td></tr>
+      <tr><th>Firmware</th><td>16,548 B flash · 2,448 B RAM</td></tr>
+      <tr><th>Status</th><td>build-verified; first article requires electrical bring-up</td></tr>
+    </tbody></table>
+  </div>
+
+  <div class="footer"><span>CODEX KEYBORED · CRYSTAL-LESS USB · PRESS KEYS, SHIP BUGS</span><span>SHEET 3 / 3</span></div>
+</section>
+</body>
+</html>

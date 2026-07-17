@@ -1,0 +1,18 @@
+.DS_Store
+**/.DS_Store
+
+# Reproducible local build products; signed release artifacts remain tracked.
+firmware/stm32/build/
+firmware/stm32/build-arm15/
+
+# Upstream dependency checkout is fetched at build time.  Keeping its nested
+# repositories out of this hardware-source repo avoids publishing 360+ MB of
+# unrelated third-party history.
+firmware/third_party/
+
+# Local logs and editor state.
+.kicad-config/
+*.lck
+*.log
+*.swp
+*.tmp

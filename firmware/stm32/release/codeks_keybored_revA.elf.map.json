@@ -1,0 +1,163 @@
+{
+  "files": [
+    {
+      "file": "board.c",
+      "path": "CMakeFiles/codeks_keybored_revA.dir/Users/steve/Documents/CodexKB/codex-micro/firmware/third_party/tinyusb/hw/bsp/board.c.obj",
+      "sections": {
+        ".text": 2
+      },
+      "size": 2,
+      "percent": 0.01
+    },
+    {
+      "file": "dcd_stm32_fsdev.c",
+      "path": "CMakeFiles/codeks_keybored_revA.dir/Users/steve/Documents/CodexKB/codex-micro/firmware/third_party/tinyusb/src/portable/st/stm32_fsdev/dcd_stm32_fsdev.c.obj",
+      "sections": {
+        ".text": 2316,
+        ".bss": 291
+      },
+      "size": 2607,
+      "percent": 15.16
+    },
+    {
+      "file": "family.c",
+      "path": "CMakeFiles/codeks_keybored_revA.dir/Users/steve/Documents/CodexKB/codex-micro/firmware/third_party/tinyusb/hw/bsp/stm32f0/family.c.obj",
+      "sections": {
+        ".text": 414,
+        ".bss": 4
+      },
+      "size": 418,
+      "percent": 2.43
+    },
+    {
+      "file": "fsdev_common.c",
+      "path": "CMakeFiles/codeks_keybored_revA.dir/Users/steve/Documents/CodexKB/codex-micro/firmware/third_party/tinyusb/src/portable/st/stm32_fsdev/fsdev_common.c.obj",
+      "sections": {
+        ".text": 170
+      },
+      "size": 170,
+      "percent": 0.99
+    },
+    {
+      "file": "hid_device.c",
+      "path": "CMakeFiles/codeks_keybored_revA.dir/Users/steve/Documents/CodexKB/codex-micro/firmware/third_party/tinyusb/src/class/hid/hid_device.c.obj",
+      "sections": {
+        ".text": 914,
+        ".bss": 60
+      },
+      "size": 974,
+      "percent": 5.67
+    },
+    {
+      "file": "libboard_codeks_keybored.a",
+      "path": "lib/libboard_codeks_keybored.a",
+      "sections": {
+        ".text": 3270,
+        ".rodata": 48,
+        ".data": 9,
+        ".bss": 4
+      },
+      "size": 3331,
+      "percent": 19.38
+    },
+    {
+      "file": "libg_nano.a",
+      "path": "/private/tmp/codex-arm-gnu/bin/../lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libg_nano.a",
+      "sections": {
+        ".text": 120
+      },
+      "size": 120,
+      "percent": 0.7
+    },
+    {
+      "file": "libgcc.a",
+      "path": "/private/tmp/codex-arm-gnu/bin/../lib/gcc/arm-none-eabi/15.2.1/thumb/v6-m/nofp/libgcc.a",
+      "sections": {
+        ".text": 360
+      },
+      "size": 360,
+      "percent": 2.09
+    },
+    {
+      "file": "main.c",
+      "path": "CMakeFiles/codeks_keybored_revA.dir/main.c.obj",
+      "sections": {
+        ".text": 1140,
+        ".rodata": 120,
+        ".bss": 98
+      },
+      "size": 1358,
+      "percent": 7.9
+    },
+    {
+      "file": "startup_stm32f072xb.s.obj",
+      "path": "CMakeFiles/codeks_keybored_revA.dir/Users/steve/Documents/CodexKB/codex-micro/firmware/third_party/tinyusb/hw/mcu/st/cmsis_device_f0/Source/Templates/gcc/startup_stm32f072xb.s.obj",
+      "sections": {
+        ".text": 82
+      },
+      "size": 82,
+      "percent": 0.48
+    },
+    {
+      "file": "stm32f0xx_hal_adc.c",
+      "path": "CMakeFiles/codeks_keybored_revA.dir/Users/steve/Documents/CodexKB/codex-micro/firmware/third_party/tinyusb/hw/mcu/st/stm32f0xx_hal_driver/Src/stm32f0xx_hal_adc.c.obj",
+      "sections": {
+        ".text": 1924
+      },
+      "size": 1924,
+      "percent": 11.19
+    },
+    {
+      "file": "stm32f0xx_hal_adc_ex.c",
+      "path": "CMakeFiles/codeks_keybored_revA.dir/Users/steve/Documents/CodexKB/codex-micro/firmware/third_party/tinyusb/hw/mcu/st/stm32f0xx_hal_driver/Src/stm32f0xx_hal_adc_ex.c.obj",
+      "sections": {
+        ".text": 200
+      },
+      "size": 200,
+      "percent": 1.16
+    },
+    {
+      "file": "tusb.c",
+      "path": "CMakeFiles/codeks_keybored_revA.dir/Users/steve/Documents/CodexKB/codex-micro/firmware/third_party/tinyusb/src/tusb.c.obj",
+      "sections": {
+        ".text": 154,
+        ".bss": 2
+      },
+      "size": 156,
+      "percent": 0.91
+    },
+    {
+      "file": "tusb_fifo.c",
+      "path": "CMakeFiles/codeks_keybored_revA.dir/Users/steve/Documents/CodexKB/codex-micro/firmware/third_party/tinyusb/src/common/tusb_fifo.c.obj",
+      "sections": {
+        ".text": 906
+      },
+      "size": 906,
+      "percent": 5.27
+    },
+    {
+      "file": "usb_descriptors.c",
+      "path": "CMakeFiles/codeks_keybored_revA.dir/usb_descriptors.c.obj",
+      "sections": {
+        ".text": 126,
+        ".rodata": 982,
+        ".bss": 64
+      },
+      "size": 1172,
+      "percent": 6.82
+    },
+    {
+      "file": "usbd.c",
+      "path": "CMakeFiles/codeks_keybored_revA.dir/Users/steve/Documents/CodexKB/codex-micro/firmware/third_party/tinyusb/src/device/usbd.c.obj",
+      "sections": {
+        ".text": 3012,
+        ".rodata": 36,
+        ".data": 21,
+        ".bss": 342
+      },
+      "size": 3411,
+      "percent": 19.84
+    }
+  ],
+  "TOTAL": 17191
+}

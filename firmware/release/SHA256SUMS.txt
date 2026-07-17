@@ -1,0 +1,3 @@
+9027e813c99efa425cd1e145c47d7d73d35ba694c39dc36ac69ab808a73dbbf3  codex-micro/firmware/release/codex_micro_wired_reva.uf2
+b8f70d85b9b986026cb3134a71817a0cacc6440c74d485a48b29fe476b25f5d1  codex-micro/firmware/release/codex_micro_wired_reva.bin
+f661d1262835d262ddb373daf564f959efa427fbdc41deb8d770e61d6e9f5c81  codex-micro/firmware/release/codex_micro_wired_reva.elf

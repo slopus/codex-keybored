@@ -36,6 +36,7 @@
     .hero-visual img{position:absolute;width:120%;max-width:none;left:-12%;bottom:-2%;filter:saturate(.85) contrast(1.06)}
     .hero-visual:after{content:'WORK LOAFER / REV A2';position:absolute;right:-115px;top:142px;color:#151615;font-size:12px;letter-spacing:.22em;transform:rotate(90deg)}
     .corner{position:absolute;left:22px;top:22px;color:#171817;font-size:11px;z-index:2}
+    .vibe{background:var(--acid);color:var(--ink);padding:96px 0}.vibe .eyebrow{color:var(--ink);font-weight:900}.vibe h2{font-size:clamp(58px,8.8vw,132px);line-height:.82;max-width:1190px;margin:20px 0 28px}.vibe-russian{font:900 clamp(28px,4.2vw,62px)/.94 var(--display);letter-spacing:-.045em;text-transform:uppercase;max-width:1100px;margin:0 0 34px}.vibe-lede{font:700 clamp(18px,2.1vw,28px)/1.25 var(--display);max-width:1040px;letter-spacing:-.015em}.vibe-grid{display:grid;grid-template-columns:repeat(3,1fr);border:2px solid var(--ink);margin:44px 0 28px}.vibe-step{padding:22px;min-height:190px;border-right:1px solid var(--ink);border-bottom:1px solid var(--ink)}.vibe-step:nth-child(3n){border-right:0}.vibe-step:nth-child(n+4){border-bottom:0}.vibe-step span{font-size:10px;letter-spacing:.12em}.vibe-step b{display:block;font:900 25px/1 var(--display);text-transform:uppercase;margin:34px 0 10px}.vibe-step p{font-size:12px;margin:0}.vibe-flow{border:2px solid var(--ink);padding:20px;font-size:clamp(11px,1.4vw,18px);font-weight:800;line-height:1.7;text-align:center}.vibe-proof{margin-top:28px;background:var(--ink);padding:8px}.vibe-proof img{width:100%}.vibe-proof figcaption{color:var(--acid);padding:10px 8px 4px;font-size:10px;letter-spacing:.12em;text-transform:uppercase}
     section{padding:88px 0;border-bottom:1px solid var(--line)}
     .section-head{display:grid;grid-template-columns:1fr 2fr;gap:28px;margin-bottom:42px;align-items:end}
     h2{font:800 clamp(34px,5vw,72px)/.93 var(--display);letter-spacing:-.055em;margin:8px 0 0;text-transform:uppercase}
@@ -65,12 +66,12 @@
     footer{padding:42px 0 80px;color:var(--muted)}
     .js section.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}.js section.reveal.is-visible{opacity:1;transform:none}
     @media(prefers-reduced-motion:no-preference){.hero-copy>*{animation:rise .65s both}.hero-copy>*:nth-child(2){animation-delay:.06s}.hero-copy>*:nth-child(3){animation-delay:.12s}.hero-copy>*:nth-child(4){animation-delay:.18s}.hero-copy>*:nth-child(5){animation-delay:.24s}@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}}
-    @media(max-width:900px){.hero{grid-template-columns:1fr}.hero-visual{min-height:460px}.section-head,.layout,.quote{grid-template-columns:1fr}.facts{grid-template-columns:repeat(2,1fr)}.cards,.board-hero{grid-template-columns:1fr}.architecture,.turnkey-grid{grid-template-columns:repeat(2,1fr)}.downloads{grid-template-columns:1fr}.nav .links{display:none}.stack-row{grid-template-columns:100px 1fr}.stack-row code{grid-column:2;text-align:left}}
+    @media(max-width:900px){.hero{grid-template-columns:1fr}.hero-visual{min-height:460px}.section-head,.layout,.quote{grid-template-columns:1fr}.facts{grid-template-columns:repeat(2,1fr)}.cards,.board-hero{grid-template-columns:1fr}.architecture,.turnkey-grid{grid-template-columns:repeat(2,1fr)}.downloads{grid-template-columns:1fr}.nav .links{display:none}.stack-row{grid-template-columns:100px 1fr}.stack-row code{grid-column:2;text-align:left}.vibe-grid{grid-template-columns:1fr}.vibe-step,.vibe-step:nth-child(3n),.vibe-step:nth-child(n+4){border-right:0;border-bottom:1px solid var(--ink)}.vibe-step:last-child{border-bottom:0}}
     @media print{body{background:#fff;color:#111}.wrap{max-width:none}.hero{min-height:auto}.hero-copy{padding:50px 40px}.hero-visual{min-height:540px}header{display:none}section,.js section.reveal{padding:42px 0;break-before:auto;opacity:1;transform:none}.card,.fact,.arch,.figure{break-inside:avoid;background:#f7f7f4}.muted,.section-note,.card small,.stack-row em,th,.sources li{color:#555}.stack-row{background:#fafaf7}.download{background:#fafaf7}.keygrid{box-shadow:none}.quote-shot{border-color:#bbb}:root{--line:#c9ccc4;--panel:#f6f7f3;--paper:#111;--muted:#555}a{text-decoration:none}}
   </style>
 </head>
 <body>
-  <header><nav><div class="brand">CODEX KEYBORED <span class="acid">/ REV A2</span></div><div class="links"><a href="#geometry">Geometry</a><a href="#cnc">CNC</a><a href="#pcb">PCB</a><a href="#files">Downloads</a></div><div class="stamp"><i class="dot"></i>buildable dossier</div></nav></header>
+  <header><nav><div class="brand">CODEX KEYBORED <span class="acid">/ REV A2</span></div><div class="links"><a href="#vibe">The point</a><a href="#geometry">Geometry</a><a href="#cnc">CNC</a><a href="#pcb">PCB</a><a href="#files">Downloads</a></div><div class="stamp"><i class="dot"></i>buildable dossier</div></nav></header>
 
   <main>
     <div class="hero">
@@ -83,6 +84,24 @@
       </div>
       <div class="hero-visual"><span class="corner">FUSION 360 / ASSEMBLY ISO</span><img src="assets/renders/fusion-codex-assembly-iso.png" alt="Fusion 360 reconstruction of Codex Micro"></div>
     </div>
+
+    <section class="vibe" id="vibe"><div class="wrap">
+      <div class="eyebrow">00 / this is the entire point</div>
+      <h2>Absolutely 100% vibe-coded. End to end.</h2>
+      <p class="vibe-russian">От первого промпта — до Fusion 360, KiCad, Gerber, прошивки и реальной загрузки в JLCPCB + JLCCNC.</p>
+      <p class="vibe-lede">This is not a disclaimer. It is the product story. One continuous conversational build loop crossed research, industrial design, CNC, multilayer electronics, sourcing, firmware, testing, pricing, and factory handoff—and left every intermediate artifact open for inspection.</p>
+      <div class="vibe-grid">
+        <div class="vibe-step"><span>01 / OBSERVE</span><b>Images became evidence</b><p>Public renders were compared, scaled from the 19.05 mm key pitch, and separated into confirmed, measured, and inferred facts.</p></div>
+        <div class="vibe-step"><span>02 / MODEL</span><b>Evidence became solids</b><p>Dimensions became a parametric 108 × 108 mm Fusion assembly, four machinable bodies, STEP/DXF, and controlled drawings.</p></div>
+        <div class="vibe-step"><span>03 / CONNECT</span><b>Controls became a PCB</b><p>The interface became a clean-room STM32F072 design, six copper layers, 74 placement centers, and a zero-error DRC gate.</p></div>
+        <div class="vibe-step"><span>04 / ANIMATE</span><b>The PCB learned USB</b><p>TinyUSB firmware, RGB safety limits, factory binaries, checksums, and a browser-based 20-input acceptance test made it behave.</p></div>
+        <div class="vibe-step"><span>05 / CONTRACT</span><b>Preferences became an SOP</b><p>“No soldering at home” became both-side PCBA, consigned switches, manual operations, flashing, FCT, and photo evidence.</p></div>
+        <div class="vibe-step"><span>06 / QUOTE</span><b>Files entered the factory</b><p>Gerbers, BOM/CPL, STEP, drawings, and the turnkey ZIP entered authenticated JLC flows and returned real saved prices.</p></div>
+      </div>
+      <div class="vibe-flow">PROMPT → DATUM → FUSION → STEP → JLCCNC &nbsp; / &nbsp; ARCHITECTURE → KICAD → GERBER → JLCPCB &nbsp; / &nbsp; FIRMWARE → TEST → TURNKEY HANDOFF</div>
+      <p class="vibe-lede" style="margin-top:32px">The best example is one sentence: “the aluminum thing looks slightly tilted.” That observation propagated into a corrected <b>5° wedge</b>, a refreshed Fusion body, a new STEP file, a revised drawing, a successful JLCCNC import, a <b>$54.56</b> live quote, and removal of the obsolete flat part from the cart. That traceable continuity—from vibe to physical manufacturing—is the project.</p>
+      <figure class="vibe-proof"><img src="../.github/codex-keybored-hero.png" alt="Exploded CODEX KEYBORED product visualization"><figcaption>One vibe / mechanics + electronics + factory handoff / Rev A2</figcaption></figure>
+    </div></section>
 
     <section id="geometry"><div class="wrap">
       <div class="section-head"><div><div class="eyebrow">01 / evidence</div><h2>What we actually know</h2></div><p class="section-note">External dimensions were scaled from the official near-orthographic render using the confirmed 19.05 mm key pitch. Internal steps and fasteners remain engineering assumptions until a physical unit can be inspected.</p></div>

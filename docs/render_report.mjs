@@ -15,6 +15,16 @@ const executablePath = "/Users/steve/Library/Caches/ms-playwright/chromium_headl
 const browser = await chromium.launch({ executablePath });
 const page = await browser.newPage({ viewport: { width: 1440, height: 1100 }, deviceScaleFactor: 1 });
 await page.goto(pathToFileURL(resolve(root, "docs/index.html")).href, { waitUntil: "networkidle", timeout: 60_000 });
+const publicLinkCount = await page.locator("a[href]").evaluateAll((links, publicBase) => {
+  let rewritten = 0;
+  for (const link of links) {
+    const href = link.getAttribute("href");
+    if (!href || href.startsWith("#") || /^[a-z][a-z0-9+.-]*:/i.test(href)) continue;
+    link.setAttribute("href", new URL(href, publicBase).href);
+    rewritten += 1;
+  }
+  return rewritten;
+}, "https://happy.engineering/codex-keybored/docs/");
 await page.emulateMedia({ media: "print" });
 await page.pdf({
   path: resolve(outDir, "CODEX-KEYBORED-Manufacturing-Dossier-RevA2.pdf"),
@@ -32,5 +42,6 @@ await page.screenshot({
 console.log(JSON.stringify({
   pdf: resolve(outDir, "CODEX-KEYBORED-Manufacturing-Dossier-RevA2.pdf"),
   screenshot: resolve(previewDir, "CODEX-KEYBORED-Landing-Full.png"),
+  publicLinks: publicLinkCount,
 }));
 await browser.close();

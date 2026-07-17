@@ -13,7 +13,7 @@
 <p align="center">
   <a href="https://happy.engineering/codex-keybored/"><b>VIEW THE MANUFACTURING DOSSIER</b></a>
   &nbsp;·&nbsp;
-  <a href="output/CODEX_KEYBORED_RevA2_turnkey_factory_handoff.zip"><b>DOWNLOAD FACTORY HANDOFF</b></a>
+  <a href="output/CODEX_KEYBORED_RevA2_order_handoff.zip"><b>DOWNLOAD COMPLETE HANDOFF</b></a>
   &nbsp;·&nbsp;
   <a href="fusion/Codex_Micro_RevA.f3d"><b>OPEN FUSION ARCHIVE</b></a>
 </p>

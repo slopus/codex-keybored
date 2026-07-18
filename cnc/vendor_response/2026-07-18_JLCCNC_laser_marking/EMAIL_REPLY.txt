@@ -1,0 +1,29 @@
+Subject: Re: Laser marking confirmation — CM2-002 bottom weight
+
+Dear JLCCNC Engineering Team,
+
+Yes, I accept switching the small logo/text on the CM2-002 aluminum bottom weight from CNC engraving to laser marking.
+
+This confirmation applies only to:
+- Part: CM2-002_bottom_weight.step
+- CNC machining item: CNC2607185001881-3086316A
+
+Manufacturing instructions:
+1. Please suppress/ignore the recessed text geometry in the STEP model. Do not CNC-machine the 0.25 mm-deep text pockets.
+2. Complete the fine bead blast and black matte anodizing first, then laser mark the desk-facing underside.
+3. The intended result is a natural-aluminum/silver mark on the black anodized surface.
+4. Use CM2-002_LASER_ARTWORK_ONLY_RevB.dxf as the production artwork. It is 1:1 in millimeters, with the origin at the part center. All lettering is converted to closed vector outlines; there are no font, TEXT, or MTEXT entities.
+5. Hatch/fill the LASER_MARK contours as compound glyph boundaries and preserve the enclosed counters/holes in letters such as O, D, A, B, and R. Do not render only a hairline stroke.
+6. Use CM2-002_LASER_PLACEMENT_REFERENCE_RevB.dxf and the PDF approval sheet for alignment only. Only the LASER_MARK layer is production artwork. Do not laser any layer whose name ends in DO_NOT_MARK.
+7. View and mark the UNDERSIDE / DESK-FACING SURFACE. +Y points toward the rear, thick edge, and USB side. Do not resize, rotate, mirror, or substitute the artwork.
+8. Preserve every other feature in the STEP model, including the G-65 O-ring groove, four mounting holes/counterbores, wedge angle, and external dimensions.
+
+Attachments:
+- CM2-002_LASER_ARTWORK_ONLY_RevB.dxf
+- CM2-002_LASER_PLACEMENT_REFERENCE_RevB.dxf
+- CM2-002_LASER_PLACEMENT_APPROVAL_RevB.pdf
+
+Please contact me before making any change to the artwork size, placement, orientation, or wording.
+
+Best regards,
+Steve Korshakov

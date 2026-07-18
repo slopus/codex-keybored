@@ -27,7 +27,7 @@ const publicLinkCount = await page.locator("a[href]").evaluateAll((links, public
 }, "https://happy.engineering/codex-keybored/docs/");
 await page.emulateMedia({ media: "print" });
 await page.pdf({
-  path: resolve(outDir, "CODEX-KEYBORED-Manufacturing-Dossier-RevA2.pdf"),
+  path: resolve(outDir, "CODEX-KEYBORED-Manufacturing-Dossier-RevB.pdf"),
   format: "A4",
   landscape: false,
   printBackground: true,
@@ -35,12 +35,15 @@ await page.pdf({
   margin: { top: "8mm", right: "8mm", bottom: "8mm", left: "8mm" },
 });
 await page.emulateMedia({ media: "screen" });
+await page.locator("section").evaluateAll((sections) => {
+  for (const section of sections) section.classList.add("is-visible");
+});
 await page.screenshot({
   path: resolve(previewDir, "CODEX-KEYBORED-Landing-Full.png"),
   fullPage: true,
 });
 console.log(JSON.stringify({
-  pdf: resolve(outDir, "CODEX-KEYBORED-Manufacturing-Dossier-RevA2.pdf"),
+  pdf: resolve(outDir, "CODEX-KEYBORED-Manufacturing-Dossier-RevB.pdf"),
   screenshot: resolve(previewDir, "CODEX-KEYBORED-Landing-Full.png"),
   publicLinks: publicLinkCount,
 }));

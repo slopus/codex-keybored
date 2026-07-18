@@ -9,7 +9,7 @@ import adsk.fusion
 PARTS = [
     (
         "/Users/steve/Documents/CodexKB/codex-micro/cnc/STEP/CM2-001_upper_housing.step",
-        "MFG_CM2_001_Upper_Housing_PC_or_Wood",
+        "MFG_CM2_001_Upper_Housing_Black_POM_RevB",
         (0.0, 0.0, 5.7),
         True,
     ),
@@ -22,10 +22,12 @@ PARTS = [
         True,
     ),
     (
-        "/Users/steve/Documents/CodexKB/codex-micro/cnc/STEP/CM2-003_optional_lightpipe.step",
-        "MFG_CM2_003_Optional_Lightpipe_PMMA",
-        (140.0, 0.0, 0.0),
-        False,
+        "/Users/steve/Documents/CodexKB/codex-micro/cnc/STEP/CM2-003_lightpipe.step",
+        "MFG_CM2_003_Mandatory_Lightpipe_PMMA_RevB",
+        # The upper housing starts at Z=5.7; its light-guide pocket floor is
+        # 8.8 mm above that datum.
+        (0.0, 0.0, 14.5),
+        True,
     ),
     (
         "/Users/steve/Documents/CodexKB/codex-micro/cnc/STEP/CM2-004_joystick_cap.step",
@@ -145,10 +147,16 @@ def run(_context: str):
         "mfg_bottom_weight_rear_height": ("12 mm", "CNC STEP CM2-002 wedge"),
         "mfg_bottom_weight_tilt": ("5 deg", "Measured/inferred from official side views"),
         "mfg_top_boss_diameter": ("16 mm", "Integrated PCB bosses"),
-        "mfg_top_insert_pilot": ("4 mm", "M3 brass insert pilot; validate against insert vendor"),
-        "mfg_bottom_screw_pitch_radius": ("43.5 mm", "Four M2.5 bottom screws at cardinal points"),
-        "mfg_usb_cutout_width": ("10.2 mm", "Rear USB-C capsule cutout"),
+        "mfg_top_thread_pilot": ("2.5 mm", "Tap M3x0.5 directly in black POM"),
+        "mfg_bottom_screw_pitch_radius": ("41 mm", "Four M2.5 bottom screws at cardinal points"),
+        "mfg_usb_cutout_width": ("11 mm", "Rear open-top USB-C capsule cutout"),
         "mfg_usb_cutout_height": ("4.6 mm", "Rear USB-C capsule cutout"),
+        "mfg_lightpipe_thickness": ("1.5 mm", "Mandatory captured PMMA light guide"),
+        "mfg_oring_id": ("64.4 mm", "Purchased JLCMC AMFG-P5-A65-65, JIS G-65"),
+        "mfg_oring_cross_section": ("3.1 mm", "Black NBR 65A continuous anti-slip ring"),
+        "mfg_oring_groove_center_diameter": ("67.5 mm", "Machined in the sloped aluminum underside"),
+        "mfg_oring_groove_width": ("3.6 mm", "0.25 mm nominal side clearance per side"),
+        "mfg_oring_groove_depth": ("2.2 mm", "0.9 mm nominal rubber protrusion"),
     }
     for name, (expression, comment) in params.items():
         _set_parameter(design, name, expression, comment)

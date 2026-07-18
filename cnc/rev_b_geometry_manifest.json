@@ -1,0 +1,58 @@
+{
+  "revision": "B",
+  "generator": "CadQuery 2.5.2 independent regeneration",
+  "source_spec": "cnc/rev_b_spec.json",
+  "parts": [
+    {
+      "file": "CM2-001_upper_housing.step",
+      "bbox_mm": [
+        108.0,
+        108.0,
+        10.3
+      ],
+      "volume_mm3": 38465.68,
+      "solids": 1
+    },
+    {
+      "file": "CM2-002_bottom_weight.step",
+      "bbox_mm": [
+        94.0,
+        94.0,
+        12.0
+      ],
+      "volume_mm3": 52830.58,
+      "solids": 1
+    },
+    {
+      "file": "CM2-003_lightpipe.step",
+      "bbox_mm": [
+        106.1,
+        106.1,
+        1.5
+      ],
+      "volume_mm3": 4112.36,
+      "solids": 1
+    },
+    {
+      "file": "CM2-004_joystick_cap.step",
+      "bbox_mm": [
+        14.5,
+        14.5,
+        7.0
+      ],
+      "volume_mm3": 1136.86,
+      "solids": 1
+    }
+  ],
+  "purchased_reference": {
+    "file": "cnc/vendor_reference/JLCMC_AMFG-P5-A65-65_G65_oring.step",
+    "supplier_part_number": "AMFG-P5-A65-65",
+    "bbox_mm": [
+      70.6,
+      70.6,
+      3.1
+    ],
+    "volume_mm3": 1600.54,
+    "manufacturing_route": "Purchase from JLCMC; do not upload as a CNC part"
+  }
+}

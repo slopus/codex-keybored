@@ -15,10 +15,10 @@ or physical sample.
 | Dial cap | 1 | [Work Louder wrk. Dial 2](https://worklouder.cc/wrk-dial-2) | Exact accessory | Current price is **$5.98**. Officially compatible with Creator Micro v2. Confirm encoder shaft length before choosing the encoder. |
 | Encoder | 1 | Clickable incremental vertical encoder, 6 mm shaft; Bourns PEC11/Alps EC11 class | Candidate | Pinout, detent count, shaft height, and mounting tabs must be measured from an opened CM2. Firmware confirms A, B, and push-switch inputs. |
 | Planar joystick | 1 | [Alps Alpine RKJXY100000A](https://tech.alpsalpine.com/e/products/detail/RKJXY100000A/), 19.6×18.1×4.9 mm, 2 kΩ X/Y | High-confidence candidate | The name, dimensions, continuous X/Y action, resin shaft, no center push, and official render geometry all match. The part is discontinued; source surplus or qualify a footprint-compatible OEM clone. |
-| Joystick cap | 1 | Custom TPU/silicone cap, measured target Ø14.5 × 4–5 mm | Custom | Print TPU 95A for the first fit check; cast Shore A 40–50 silicone for the final tactile part. Bore/retention geometry follows the selected joystick. |
+| Joystick cap | 1 | CM2-004 machined black POM, target Ø14.5 × 7 mm | Quoted prototype | The current rigid cap is a geometry/fit first article. Retention geometry follows the selected joystick and may later be transferred to molded silicone. |
 | Top fasteners | 4 | Black ISO 4762 M3 socket-head, provisional M3×10 or M3×12 | Candidate | Render head size matches M3. Final length depends on real standoff/thread depth. |
 | Standoffs/inserts | 4 | Ø7 × 8.3 mm envelope, M3 internal thread | Custom/COTS | Turn aluminum/brass standoffs or use commercial M3 female spacers after the lower stack is fixed. |
-| Anti-slip ring | 1 | 1 mm silicone/EPDM, Ø92 outer / Ø82 inner, 3M 467MP adhesive | Custom | Laser/plotter cut or waterjet. Confirm diameters from a physical base before production. |
+| Continuous anti-slip ring | 1 | [JLCMC AMFG-P5-A65-65](https://jlcmc.com/product/s/A05/AMFG/o-ring-g-series), JIS B 2401 G-65, black NBR 65 Shore A | Exact purchased part | ID 64.4 ±0.57 mm, section 3.1 ±0.10 mm, nominal OD 70.6 mm. Captured in the machined base groove without adhesive. Live price **$0.1522**; in cart. |
 | USB-C receptacle | 1 | HRO TYPE-C-31-M-12, LCSC C165948 | Selected | Exact KiCad footprint and JLCPCB-available part used on wired Rev A. |
 | LiPo | 1 | Protected 1S pouch, 1900–2100 mAh, target envelope ≤58×42×6 mm | Candidate | Work Louder publishes 2100 mAh; Framer publishes 1900 mAh. Treat capacity and connector as variant-dependent. |
 
@@ -46,19 +46,19 @@ sell OpenAI/Work Louder branded caps or imply an authorized product.
 
 ## CNC housing — original material
 
-### Upper body / light diffuser
+### Upper body / captured light diffuser
 
-- Stock: cast polycarbonate or PMMA, minimum 115×115×13 mm.
+- Current quoted stock: black POM, minimum 115×115×13 mm.
 - Finished envelope: 108×108×10.3 mm, outer R14.
 - Inner opening in v0.1: 92×92 mm, R7, leaving an 8 mm nominal wall.
-- Finish: machine with polished single-flute tools, then uniform 400–600 grit
-  sanding or controlled bead blasting for the official diffuse glow.
+- Finish: no bead blast; polish cosmetic A-surfaces to target Ra ≤0.8 µm.
+- Capture the separate 1.5 mm clear cast PMMA light pipe in the 106.4 mm pocket;
+  transparent-polish its edges and apply a uniform fine frost to the top face.
 - Leave 0.20–0.30 mm total clearance around the 90 mm top PCB/panel until the
   machining process is characterized.
 
-Polycarbonate is tougher and safer around screws; cast PMMA machines more
-cleanly and diffuses well but can crack if threads are over-tightened. Avoid
-cutting load-bearing threads directly into PMMA.
+The production threads are in POM: four M3×0.5 PCB bosses and four M2.5×0.45
+base bosses. Confirm thread gauges and screw engagement on the first article.
 
 ### Bottom wedge
 
@@ -66,27 +66,29 @@ cutting load-bearing threads directly into PMMA.
 - Finished envelope: Ø94 mm, planar top, underside rising from 3.8 mm at the
   front datum to 12.0 mm at the rear datum; nominal tilt 5°.
 - Finish quoted at JLC CNC: bead blast + matte black anodize, ISO 2768 medium.
-- Current one-off quote: **$54.56** before shipping; six quoted production days.
-- Add M3 threads or inserts only after the lower PCB/battery clearances are
-  frozen. The present CNC STEP intentionally keeps the base as a vendor-safe
-  solid wedge.
+- Four Ø2.8 mm M2.5 clearance holes with Ø5.0 × 1.9 mm counterbores.
+- Continuous ring groove: Ø67.5 mm centerline, 3.6 mm wide × 2.2 mm deep.
+  The G-65 ring stands 0.9 mm proud nominally; groove-to-counterbore land is
+  2.95 mm and the minimum aluminum floor is 1.6 mm.
+- Current one-off quote: **$68.31** before shipping; six quoted production days.
 
 ### Current JLC CNC one-off estimate
 
 | Machined part | Material / finish | Quote |
 |---|---|---:|
-| Upper housing | Polycarbonate, as configured | $58.96 |
-| Angled bottom wedge | 6061, bead blast + matte black anodize | $54.56 |
-| Optional light pipe | PMMA | $40.62 |
-| Joystick cap prototype | POM | $19.42 |
-| **Parts subtotal** |  | **$173.56** |
-| Shipping estimate |  | $28.12 |
-| **Estimated delivered** |  | **$201.68** |
+| Upper housing | Black POM, polished A-surfaces | $88.97 |
+| Angled bottom wedge | 6061, G-65 groove, bead blast + matte black anodize | $68.31 |
+| Captured light pipe | Clear cast PMMA, polished edges + frosted top face | $45.70 |
+| Joystick cap prototype | Black POM | $19.42 |
+| **JLCCNC subtotal** |  | **$222.40** |
+| Purchased G-65 ring | JLCMC AMFG-P5-A65-65 | $0.16 |
+| **Mechanical merchandise subtotal** | before shipping/tax/duty | **$222.56** |
 
 These are live quote results captured on 2026-07-17, not guaranteed invoice
-prices. The new angled base and the other three current parts are saved in the
-signed-in cart. The obsolete $23.71 flat-base item was explicitly removed;
-the cart now contains exactly four CNC items.
+prices. The groove-base and the other three current parts are saved in the
+signed-in cart together with the exact G-65 ring. Superseded flat/no-groove
+parts and individual rubber feet were removed; the cart contains exactly four
+CNC items and one JLCMC ring for this mechanical revision.
 
 ## CNC housing — recommended wood version
 

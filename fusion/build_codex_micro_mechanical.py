@@ -341,7 +341,7 @@ def run(_context: str):
         "cm_bottom_front_height": ("3.8 mm", "MEASURED/INFERRED from official side views"),
         "cm_bottom_rear_height": ("12 mm", "MEASURED/INFERRED from official side views"),
         "cm_bottom_tilt": ("5 deg", "MEASURED/INFERRED from official side views"),
-        "cm_pcb_z": ("14 mm", "INFERRED stack height"),
+        "cm_pcb_z": ("14.4 mm", "Rev B POM boss support plane"),
         "cm_pcb_thickness": ("1.6 mm", "INFERRED standard PCB"),
         "cm_keycap_1u": ("17.6 mm", "MEASURED from official top render"),
         "cm_keycap_2u": ("36.55 mm", "MEASURED from pitch and gap"),
@@ -399,8 +399,11 @@ def run(_context: str):
     bottom_body = _add_cylinder(
         bottom, "CNC_Aluminum_Bottom_D94", 0.0, 0.0, 0.8, 94.0, 4.9
     )
+    # Simplified visible protrusion of the purchased JIS G-65 O-ring.  The
+    # production base captures the full 3.1 mm section in a 2.2 mm groove.
     rubber_ring = _add_ring(
-        bottom, "AntiSlip_Ring_D92_D82", 0.0, 0.0, 0.0, 92.0, 82.0, 0.8
+        bottom, "Purchased_JLCMC_G65_Oring_Visible_Protrusion", 0.0, 0.0, 0.0,
+        70.6, 64.4, 0.9
     )
     _paint(bottom_body, aluminum_appearance)
     _paint(rubber_ring, black_appearance)

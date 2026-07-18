@@ -3,7 +3,7 @@
 </p>
 
 <h1 align="center">CODEX KEYBORED</h1>
-<h3 align="center">WORK LOAFER EDITION · REV A2</h3>
+<h3 align="center">WORK LOAFER EDITION · MECHANICS REV B · ELECTRONICS REV A2</h3>
 
 <p align="center">
   A from-scratch, manufacturable parody of the Codex Micro: Fusion 360 mechanics,<br>
@@ -13,7 +13,7 @@
 <p align="center">
   <a href="https://happy.engineering/codex-keybored/"><b>VIEW THE MANUFACTURING DOSSIER</b></a>
   &nbsp;·&nbsp;
-  <a href="output/CODEX_KEYBORED_RevA2_order_handoff.zip"><b>DOWNLOAD COMPLETE HANDOFF</b></a>
+  <a href="output/CODEX_KEYBORED_RevB_order_handoff.zip"><b>DOWNLOAD COMPLETE HANDOFF</b></a>
   &nbsp;·&nbsp;
   <a href="fusion/Codex_Micro_RevA.f3d"><b>OPEN FUSION ARCHIVE</b></a>
 </p>
@@ -52,16 +52,16 @@
 
 Most vibe-coded projects end at a screenshot. This one kept going until the pixels became toleranced solids, the solids became quoted CNC parts, the control layout became a routed six-layer PCB, the PCB became Gerbers/BOM/CPL, the firmware became checksummed factory binaries, and the whole stack became live JLC manufacturing jobs.
 
-That is the fun of this repository: the same conversational build loop moves through every engineering discipline without hiding the seams. An observation such as “the aluminum base is slightly tilted” does not remain a note—it becomes a revised **5° Fusion body**, a new STEP export, a new drawing, a successful JLCCNC import, a corrected **$54.56** quote, and a cleaned cart. A request such as “I do not want to solder switches” becomes a both-side PCBA configuration, consigned-parts manifest, 74-position placement file, manual assembly contract, flashing procedure, and functional acceptance test.
+That is the fun of this repository: the same conversational build loop moves through every engineering discipline without hiding the seams. “The aluminum base is slightly tilted” became a **5° Fusion body**. “Not a foot, a ring” became a purchased **JIS G‑65 O-ring**, a concentric retention groove, refreshed STEP/DXF/PDF exports, a successful JLCCNC import, a **$68.31** live base quote, and a cleaned cart. “I do not want to solder switches” became a both-side PCBA configuration, consigned-parts manifest, 74-position placement file, manual assembly contract, flashing procedure, and functional acceptance test.
 
 | Vibe-coding pass | What was created | Where it became real |
 |---|---|---|
 | **Look closely** | Public renders were compared, scaled, and converted into an explicit confirmed/measured/inferred datum set | Research notes + manufacturing dossier |
-| **Make it solid** | A parametric 108 × 108 mm assembly, corrected wedge, pockets, fasteners, light pipe, joystick cap | Fusion 360 archive + four STEP/DXF packages |
+| **Make it solid** | A parametric 108 × 108 mm assembly, corrected wedge, captured light pipe, joystick cap, and purchased continuous grip ring | Fusion 360 scripts + four STEP/DXF packages + G‑65 vendor reference |
 | **Make it electronic** | A clean-room STM32F072 architecture, matrix, USB-C, touch, joystick, 24 RGB pixels, six copper layers | KiCad source + 0-error DRC + IPC netlist |
 | **Make it behave** | USB HID firmware, neutral F13–F24 map, RGB safety limit, factory browser test | BIN/HEX/ELF + SHA-256 checksums |
 | **Make it buildable** | LCSC mappings, BOM/CPL, specialty-parts sourcing, manual operations, inspection gates | Turnkey factory ZIP + controlled SOP |
-| **Make the factory answer** | CAD and fabrication files were uploaded into authenticated quote flows | Four JLCCNC items + JLCPCB job Y5 |
+| **Make the factory answer** | CAD and fabrication files were uploaded into authenticated quote flows | Four current JLCCNC items + JLCMC G‑65 ring + JLCPCB job Y5 |
 
 ```text
 PROMPT → RESEARCH → DIMENSIONS → FUSION 360 → STEP/DXF → JLCCNC
@@ -82,7 +82,7 @@ The result is not “AI made a picture of a keyboard.” The result is a version
 | **108 × 108 mm** outer envelope | **90 × 90 mm**, six copper layers | **4 CNC parts** already quoted |
 | **5°** machined aluminum wedge | STM32F072 + USB-C + TinyUSB | **5 PCBs / 2 PCBA** in turnkey job Y5 |
 | Parametric Fusion assembly + STEP/DXF | 12 keys + encoder + touch + joystick | Specialty parts consigned to the factory |
-| Polycarbonate, PMMA, POM, 6061-T6 | 24 reverse-mount RGB pixels | Flash, functional test, and evidence in SOP |
+| Black POM, clear PMMA, 6061-T6, NBR | 24 reverse-mount RGB pixels | Flash, functional test, and evidence in SOP |
 | Controlled drawing pack | **0 DRC violations / 0 unconnected nets** | Customer closes only a few enclosure screws |
 
 <table>
@@ -113,17 +113,18 @@ Quotes were captured in an authenticated JLC session on **July 17, 2026**. Price
 
 | Job | Configuration | Captured price |
 |---|---|---:|
-| CM2-001 upper housing | CNC polycarbonate, qty 1 | **$58.96** |
-| CM2-002 angled weight | CNC 6061-T6, 5° wedge, qty 1 | **$54.56** |
-| CM2-003 light pipe | CNC frosted PMMA, qty 1 | **$40.62** |
+| CM2-001 upper housing | CNC polished black POM, qty 1 | **$88.97** |
+| CM2-002 angled weight | CNC 6061-T6, 5° wedge + G‑65 groove, qty 1 | **$68.31** |
+| CM2-003 light pipe | CNC clear cast PMMA, polished edges + frosted face, qty 1 | **$45.70** |
 | CM2-004 joystick cap | CNC POM fit prototype, qty 1 | **$19.42** |
-| **JLCCNC subtotal** | Four corrected production items | **$173.56** |
+| CM2-005 continuous grip ring | JLCMC AMFG-P5-A65-65 / black NBR 65A, qty 1 | **$0.16** |
+| **Mechanical subtotal** | Four current CNC parts + purchased ring | **$222.56** |
 | **JLCPCB turnkey base** | Five PCBs + two both-side Standard PCBA | **$193.01** |
-| **Captured manufacturing floor** | Before manual review, special parts, tax/duty/shipping adjustments | **$366.57** |
+| **Captured manufacturing floor** | Mechanical merchandise + PCBA base, before manual review, special parts, tax/duty/shipping | **$415.57** |
 
 <p align="center">
   <img src="docs/assets/jlcpcb/turnkey_quote_final.png" width="49%" alt="JLCPCB turnkey quote configuration">
-  <img src="docs/assets/screenshots/jlccnc-final-quote-summary.png" width="49%" alt="JLCCNC four-part quote summary">
+  <img src="docs/assets/screenshots/jlccnc-revb-base-g65-quote.png" width="49%" alt="JLCCNC Rev B ring-groove base quote">
 </p>
 
 The **$193.01** PCB/PCBA figure is a captured base, not a promise of a finished-device total. Programming, functional test, secondary manual operations, and consigned-part handling remain quote-after-review. The saved cart proves that the geometry and six-layer board can enter the vendor workflow; JLC engineering approval is still the gate before payment.
@@ -134,13 +135,13 @@ The **$193.01** PCB/PCBA figure is a captured base, not a promise of a finished-
 |---|---|---|
 | Fusion mechanics | [`fusion/build_codex_micro_mechanical.py`](fusion/build_codex_micro_mechanical.py) | [`Codex_Micro_RevA.f3d`](fusion/Codex_Micro_RevA.f3d) |
 | CNC geometry | Fusion BRep bodies | [`cnc/STEP/`](cnc/STEP/) + [`cnc/DXF/`](cnc/DXF/) |
-| CNC dimensions | Parametric model + controlled notes | [`CM2_CNC_Drawing_Pack_RevA.pdf`](cnc/drawings/CM2_CNC_Drawing_Pack_RevA.pdf) |
+| CNC dimensions | Parametric model + controlled notes | [`CM2_CNC_Drawing_Pack_RevB.pdf`](cnc/drawings/CM2_CNC_Drawing_Pack_RevB.pdf) |
 | PCB connectivity/layout | [`codex_micro_wired_revA.kicad_pcb`](electronics/kicad/codex_micro_wired_revA.kicad_pcb) | [Gerber/drill ZIP](electronics/production/codex_micro_wired_revA_gerbers.zip) |
 | Assembly data | Board-derived generator | [JLC BOM](electronics/production/codex_micro_wired_revA_jlc_bom.csv) + [JLC CPL](electronics/production/codex_micro_wired_revA_jlc_cpl.csv) |
 | Principle schematic | Final routed connectivity | [Three-sheet PDF](output/pdf/CODEX_KEYBORED_RevA2_schematic.pdf) + [IPC-D-356](electronics/production/netlist/CODEX_KEYBORED_RevA2.ipc) |
 | Firmware | [`firmware/stm32/`](firmware/stm32/) | [BIN](firmware/stm32/release/codeks_keybored_revA.bin) + [HEX](firmware/stm32/release/codeks_keybored_revA.hex) + [checksums](firmware/stm32/release/SHA256SUMS.txt) |
-| Factory contract | Rev A2 manufacturing assumptions | [Turnkey factory handoff ZIP](output/CODEX_KEYBORED_RevA2_turnkey_factory_handoff.zip) |
-| Full report | Evidence, screenshots, prices, sources | [Single-page dossier](https://happy.engineering/codex-keybored/) + [PDF](output/pdf/CODEX-KEYBORED-Manufacturing-Dossier-RevA2.pdf) |
+| Factory contract | Mechanics Rev B + electronics Rev A2 | [Complete order handoff ZIP](output/CODEX_KEYBORED_RevB_order_handoff.zip) + [mechanical factory ZIP](output/CODEX_KEYBORED_RevB_mechanical_factory_handoff.zip) |
+| Full report | Evidence, screenshots, prices, sources | [Single-page dossier](https://happy.engineering/codex-keybored/) + [Rev B PDF](output/pdf/CODEX-KEYBORED-Manufacturing-Dossier-RevB.pdf) |
 
 ## Electrical architecture
 
@@ -172,6 +173,8 @@ The coordinate origin is the device center. `+Y` points toward the rear edge; `+
 | PCB screw pitch | 78 × 78 mm | **MEASURED** | Provisional ±0.5 mm |
 | Upper housing | 108 × 108 × 10.3 mm, R14 | **MEASURED** | Public front/side/top renders |
 | Aluminum bottom | Ø94 mm, 3.8→12.0 mm, 5° | **MEASURED / INFERRED** | Side profile + CNC construction |
+| G‑65 retention groove | Ø67.5 mm centerline × 3.6 W × 2.2 D | **ENGINEERED** | G‑65 section, screw clearance, 1.6 mm minimum Al floor |
+| Continuous grip ring | JIS B 2401 G‑65, ID 64.4, section 3.1, OD 70.6 mm | **PURCHASED / VERIFIED** | JLCMC AMFG-P5-A65-65 |
 | Joystick candidate | Alps RKJXY1000006 | **CANDIDATE** | Available electrical/mechanical sibling |
 
 Confidence language is deliberate:
@@ -179,12 +182,14 @@ Confidence language is deliberate:
 - **CONFIRMED** — explicitly published by OpenAI, Work Louder, or a component manufacturer.
 - **MEASURED** — scaled from a public, near-orthographic product render.
 - **INFERRED** — a manufacturable placeholder that still requires physical first-article inspection.
+- **ENGINEERED** — a derived interface sized from known parts, tolerances, and adjacent clearances.
+- **PURCHASED / VERIFIED** — an exact orderable catalog part with checked dimensions and a live cart entry.
 
 ## CNC material directions
 
-The quoted build uses clear/diffusing polycarbonate, black-anodized 6061-T6, frosted PMMA, and POM. A wood variant is also practical: machine the upper housing from stabilized maple, walnut, or laminated birch, retain the aluminum wedge, and keep the separate frosted PMMA light pipe so the underglow is not blocked. Leave at least 2.5–3.0 mm wall thickness around the pocket and tune 0.15–0.25 mm radial clearance after the first machining coupon.
+The current quoted Rev B build uses polished black POM for the upper housing and joystick cap, black-anodized 6061-T6 for the 5° base, clear cast PMMA for the captured light pipe, and a purchased black NBR G‑65 ring. A wood upper remains a future material experiment, but it is not the current cart configuration.
 
-All four STEP files passed JLC's automated CNC import. The bottom was explicitly corrected from an early flat disc to the observed **5° wedge** before the current quote was saved.
+All four STEP files passed JLC's automated CNC import. The current bottom was explicitly corrected from an early flat disc to the observed **5° wedge**, then revised again with the G‑65 retention groove before the **$68.31** configuration was saved. Obsolete flat/no-groove parts and individual rubber feet were removed from the cart.
 
 ## Reproduce it
 
@@ -206,4 +211,4 @@ Primary research links and detailed source notes live in the [manufacturing doss
 ---
 
 <h2 align="center">PRESS KEYS. SHIP BUGS.</h2>
-<p align="center"><b>CODEX KEYBORED / WORK LOAFER EDITION / REV A2</b></p>
+<p align="center"><b>CODEX KEYBORED / WORK LOAFER EDITION / MECHANICS REV B + ELECTRONICS REV A2</b></p>

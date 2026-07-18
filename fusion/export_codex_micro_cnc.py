@@ -23,6 +23,11 @@ BOTTOM_DIAMETER_MM = 94.0
 BOTTOM_TILT_DEG = 5.0
 BOTTOM_FRONT_THICKNESS_MM = 3.8
 BOTTOM_REAR_THICKNESS_MM = 12.0
+BOTTOM_FASTENER_RADIUS_MM = 41.0
+G65_GROOVE_CENTER_DIAMETER_MM = 67.5
+G65_GROOVE_WIDTH_MM = 3.6
+G65_GROOVE_DEPTH_MM = 2.2
+LIGHTPIPE_POCKET_FLOOR_MM = 8.8
 
 
 def _cm(mm):
@@ -189,6 +194,46 @@ def _wedge_bottom_z(y_mm):
     return top_z - center_thickness - y_mm * math.tan(math.radians(BOTTOM_TILT_DEG))
 
 
+def _cut_sloped_oring_groove(component, target):
+    """Cut the JIS G-65 retention groove normal to the desk-facing plane."""
+    manager = adsk.fusion.TemporaryBRepManager.get()
+    angle = math.radians(BOTTOM_TILT_DEG)
+    inward = adsk.core.Vector3D.create(0.0, math.sin(angle), math.cos(angle))
+    plane_z = _wedge_bottom_z(0.0)
+    start_offset = -0.2
+    end_offset = G65_GROOVE_DEPTH_MM + 0.2
+
+    def point_at(offset_mm):
+        return _p(
+            0.0,
+            inward.y * offset_mm,
+            plane_z + inward.z * offset_mm,
+        )
+
+    outer_radius = (G65_GROOVE_CENTER_DIAMETER_MM + G65_GROOVE_WIDTH_MM) / 2.0
+    inner_radius = (G65_GROOVE_CENTER_DIAMETER_MM - G65_GROOVE_WIDTH_MM) / 2.0
+    outer = component.bRepBodies.add(manager.createCylinderOrCone(
+        point_at(start_offset), _cm(outer_radius),
+        point_at(end_offset), _cm(outer_radius),
+    ))
+    inner = component.bRepBodies.add(manager.createCylinderOrCone(
+        point_at(start_offset - 0.1), _cm(inner_radius),
+        point_at(end_offset + 0.1), _cm(inner_radius),
+    ))
+    _combine(
+        component,
+        outer,
+        [inner],
+        adsk.fusion.FeatureOperations.CutFeatureOperation,
+    )
+    _combine(
+        component,
+        target,
+        [outer],
+        adsk.fusion.FeatureOperations.CutFeatureOperation,
+    )
+
+
 def _cut_rounded_xy(component, target, width, depth, radius, height):
     sketch = component.sketches.add(component.xYConstructionPlane)
     sketch.name = "INNER_CAVITY_PROFILE"
@@ -207,20 +252,23 @@ def _cut_side_ports(component, target):
     x_axis = adsk.core.Vector3D.create(1, 0, 0)
     y_axis = adsk.core.Vector3D.create(0, 1, 0)
 
-    # USB-C capsule: 10.2 x 4.6 mm, R2.3, swept 20 mm through rear wall.
+    # USB-C capsule: 11.0 x 4.6 mm, R2.3, swept through the rear wall.
+    # It opens through the top edge because the receptacle sits on top of the
+    # PCB support plane at Z=8.7 mm; the previous Z=3.2 opening was invalid.
     usb_tools = []
     box = adsk.core.OrientedBoundingBox3D.create(
-        _p(0, 50, 3.2), x_axis, y_axis, _cm(5.6), _cm(20.0), _cm(4.6)
+        _p(0, 50, 9.8), x_axis, y_axis, _cm(6.4), _cm(20.0), _cm(4.6)
     )
     usb_tools.append(component.bRepBodies.add(manager.createBox(box)))
-    for x in (-2.8, 2.8):
+    for x in (-3.2, 3.2):
         cylinder = manager.createCylinderOrCone(
-            _p(x, 40, 3.2), _cm(2.3), _p(x, 60, 3.2), _cm(2.3)
+            _p(x, 40, 9.8), _cm(2.3), _p(x, 60, 9.8), _cm(2.3)
         )
         usb_tools.append(component.bRepBodies.add(cylinder))
 
+    # Reserved pairing/reset actuator for a future drop-in Bluetooth PCB.
     button = manager.createCylinderOrCone(
-        _p(14.0, 40, 5.0), _cm(2.1), _p(14.0, 60, 5.0), _cm(2.1)
+        _p(14.0, 40, 6.5), _cm(2.1), _p(14.0, 60, 6.5), _cm(2.1)
     )
     usb_tools.append(component.bRepBodies.add(button))
     _combine(component, target, usb_tools, adsk.fusion.FeatureOperations.CutFeatureOperation)
@@ -237,13 +285,28 @@ def _build_upper_housing(root):
     outer = _new_rounded_box(root, "CM2_001_UPPER_HOUSING", 108.0, 108.0, 10.3, 14.0)
     _cut_rounded_xy(root, outer, 92.0, 92.0, 7.0, 10.3)
 
+    # Captured light-guide pocket: 0.8 mm cosmetic outer lip and 1.5 mm depth.
+    pocket = _new_rounded_box(
+        root, "LIGHTPIPE_POCKET_TOOL", 106.4, 106.4, 1.7, 13.2,
+        LIGHTPIPE_POCKET_FLOOR_MM,
+    )
+    pocket_inner = _new_rounded_box(
+        root, "LIGHTPIPE_POCKET_INNER_TOOL", 92.0, 92.0, 2.1, 7.0,
+        LIGHTPIPE_POCKET_FLOOR_MM - 0.2,
+    )
+    _combine(root, pocket, [pocket_inner], adsk.fusion.FeatureOperations.CutFeatureOperation)
+    _combine(root, outer, [pocket], adsk.fusion.FeatureOperations.CutFeatureOperation)
+
     flange = _new_ring(root, "BOTTOM_DISC_SUPPORT_FLANGE", 94.0, 82.0, 2.5)
     boss_centers = [(-39.0, -39.0), (-39.0, 39.0), (39.0, -39.0), (39.0, 39.0)]
     bosses = [
-        _new_cylinder(root, f"TOP_PCB_BOSS_{i}", x, y, 16.0, 8.3)
+        _new_cylinder(root, f"TOP_PCB_BOSS_{i}", x, y, 16.0, 8.7)
         for i, (x, y) in enumerate(boss_centers, 1)
     ]
-    bottom_centers = [(-43.5, 0), (43.5, 0), (0, -43.5), (0, 43.5)]
+    bottom_centers = [
+        (-BOTTOM_FASTENER_RADIUS_MM, 0), (BOTTOM_FASTENER_RADIUS_MM, 0),
+        (0, -BOTTOM_FASTENER_RADIUS_MM), (0, BOTTOM_FASTENER_RADIUS_MM),
+    ]
     bottom_bosses = [
         _new_cylinder(root, f"BOTTOM_FASTENER_BOSS_{i}", x, y, 8.0, 6.0)
         for i, (x, y) in enumerate(bottom_centers, 1)
@@ -255,10 +318,9 @@ def _build_upper_housing(root):
         adsk.fusion.FeatureOperations.JoinFeatureOperation,
     )
 
-    # M3 insert pilot: 4.0 mm diameter, 7.0 mm deep, 1.3 mm floor.
-    _cut_cylinders(root, outer, boss_centers, 4.0, 7.0, 1.3, "M3_INSERT_PILOT")
-    # M2.5 thread-forming screw pilot in 6 mm integrated attachment bosses.
-    _cut_cylinders(root, outer, bottom_centers, 2.1, 5.8, 0.0, "M2P5_PILOT")
+    # Directly tapped POM threads remove the need for manually installed inserts.
+    _cut_cylinders(root, outer, boss_centers, 2.5, 7.4, 1.3, "M3_TAP_PILOT")
+    _cut_cylinders(root, outer, bottom_centers, 2.05, 5.8, 0.0, "M2P5_TAP_PILOT")
     _cut_side_ports(root, outer)
     return outer
 
@@ -283,7 +345,10 @@ def _build_bottom_weight(root):
         BOTTOM_TILT_DEG,
     )
 
-    centers = [(-43.5, 0), (43.5, 0), (0, -43.5), (0, 43.5)]
+    centers = [
+        (-BOTTOM_FASTENER_RADIUS_MM, 0), (BOTTOM_FASTENER_RADIUS_MM, 0),
+        (0, -BOTTOM_FASTENER_RADIUS_MM), (0, BOTTOM_FASTENER_RADIUS_MM),
+    ]
     # The screw axes stay perpendicular to the keyboard/top mounting face.
     # Each counterbore starts at its local point on the sloped underside.
     clearance_tools = []
@@ -314,12 +379,22 @@ def _build_bottom_weight(root):
         clearance_tools + counterbore_tools,
         adsk.fusion.FeatureOperations.CutFeatureOperation,
     )
+    _cut_sloped_oring_groove(root, disc)
     return disc
 
 
 def _build_lightpipe(root):
-    outer = _new_rounded_box(root, "CM2_003_OPTIONAL_LIGHTPIPE", 108.0, 108.0, 1.5, 14.0)
-    _cut_rounded_xy(root, outer, 92.0, 92.0, 7.0, 1.5)
+    outer = _new_rounded_box(root, "CM2_003_MANDATORY_LIGHTPIPE", 106.1, 106.1, 1.5, 13.05)
+    _cut_rounded_xy(root, outer, 91.2, 91.2, 6.6, 1.5)
+    manager = adsk.fusion.TemporaryBRepManager.get()
+    gap_box = adsk.core.OrientedBoundingBox3D.create(
+        _p(0, 50.0, 0.75),
+        adsk.core.Vector3D.create(1, 0, 0),
+        adsk.core.Vector3D.create(0, 1, 0),
+        _cm(12.0), _cm(20.0), _cm(2.0),
+    )
+    gap = root.bRepBodies.add(manager.createBox(gap_box))
+    _combine(root, outer, [gap], adsk.fusion.FeatureOperations.CutFeatureOperation)
     return outer
 
 
@@ -338,13 +413,13 @@ def _save_outline_dxf(root, filename, kind):
             sketch.sketchCurves.sketchCircles.addByCenterRadius(_p(x, y), _cm(2.0))
     elif kind == "bottom":
         sketch.sketchCurves.sketchCircles.addByCenterRadius(_p(0, 0), _cm(47.0))
-        for x, y in [(-43.5, 0), (43.5, 0), (0, -43.5), (0, 43.5)]:
+        for x, y in [
+            (-BOTTOM_FASTENER_RADIUS_MM, 0), (BOTTOM_FASTENER_RADIUS_MM, 0),
+            (0, -BOTTOM_FASTENER_RADIUS_MM), (0, BOTTOM_FASTENER_RADIUS_MM),
+        ]:
             sketch.sketchCurves.sketchCircles.addByCenterRadius(_p(x, y), _cm(1.4))
-    elif kind == "rubber":
-        sketch.sketchCurves.sketchCircles.addByCenterRadius(_p(0, 0), _cm(46.0))
-        sketch.sketchCurves.sketchCircles.addByCenterRadius(_p(0, 0), _cm(41.0))
     elif kind == "top_pcb":
-        _rounded_rectangle(sketch, 0, 0, 90.0, 90.0, 5.0)
+        _rounded_rectangle(sketch, 0, 0, 90.0, 90.0, 4.0)
         for x, y in [(-39, -39), (-39, 39), (39, -39), (39, 39)]:
             sketch.sketchCurves.sketchCircles.addByCenterRadius(_p(x, y), _cm(1.6))
     if not sketch.saveAsDXF(filename):
@@ -421,9 +496,9 @@ def run(_context: str):
         results.append(_export_part(
             app,
             original_doc,
-            "CM2-003 Optional Lightpipe",
+            "CM2-003 Mandatory Lightpipe",
             _build_lightpipe,
-            "CM2-003_optional_lightpipe.step",
+            "CM2-003_lightpipe.step",
         ))
         results.append(_export_part(
             app,
@@ -432,13 +507,6 @@ def run(_context: str):
             _build_joystick_cap,
             "CM2-004_joystick_cap.step",
         ))
-        _export_reference_dxf(
-            app,
-            original_doc,
-            "CM2 Anti-slip Ring",
-            "CM2-005_anti_slip_ring_profile.dxf",
-            "rubber",
-        )
         _export_reference_dxf(
             app,
             original_doc,

@@ -1,0 +1,76 @@
+{
+  "revision": "B",
+  "status": "PASS",
+  "parts": [
+    {
+      "file": "CM2-001_upper_housing.step",
+      "solid": true,
+      "bbox_mm": [
+        108.0,
+        108.0,
+        10.3
+      ],
+      "volume_mm3": 38465.68
+    },
+    {
+      "file": "CM2-002_bottom_weight.step",
+      "solid": true,
+      "bbox_mm": [
+        94.0,
+        94.0,
+        12.0
+      ],
+      "volume_mm3": 52830.58
+    },
+    {
+      "file": "CM2-003_lightpipe.step",
+      "solid": true,
+      "bbox_mm": [
+        106.1,
+        106.1,
+        1.5
+      ],
+      "volume_mm3": 4112.36
+    },
+    {
+      "file": "CM2-004_joystick_cap.step",
+      "solid": true,
+      "bbox_mm": [
+        14.5,
+        14.5,
+        7.0
+      ],
+      "volume_mm3": 1136.86
+    }
+  ],
+  "interface_checks": {
+    "pcb_per_side_clearance_mm": 1.0,
+    "pcb_mount_pitch_error_mm": 0.0,
+    "lightpipe_outer_per_side_clearance_mm": 0.15,
+    "lightpipe_overhang_into_opening_mm": 0.4,
+    "lightpipe_to_pcb_per_side_clearance_mm": 0.6,
+    "usb_notch_shell_total_clearance_mm": 2.06,
+    "oring_groove_edge_margin_mm": 11.45,
+    "oring_groove_to_counterbore_margin_mm": 2.95,
+    "oring_nominal_side_clearance_mm": 0.25,
+    "oring_nominal_protrusion_mm": 0.9,
+    "minimum_front_material_below_groove_mm": 1.6,
+    "base_counterbore_edge_margin_mm": 3.5
+  },
+  "estimated_mass": {
+    "upper_black_pom_g": 54.2,
+    "bottom_6061_g": 142.6,
+    "lightpipe_pmma_g": 4.9,
+    "joystick_cap_pom_g": 1.6,
+    "purchased_g65_nbr_oring_g": 1.9,
+    "mechanical_total_g": 205.2
+  },
+  "notes": [
+    "PCB outline checked against generated KiCad source: 90 x 90 mm, R4, 78 mm mount pitch.",
+    "PCB coordinate mapping is rotated 180 degrees in the assembly: USB at board Y=5.1 maps to rear +Y.",
+    "A single purchased JLCMC AMFG-P5-A65-65 G-65 O-ring replaces both the rejected TPU ring and temporary discrete-foot options.",
+    "JIS G-65 envelope: 64.4 mm nominal ID x 3.1 mm section; black NBR 65A.",
+    "The O-ring is captured without adhesive in a 67.5 mm centerline diameter x 3.6 mm wide x 2.2 mm deep groove.",
+    "First-article physical fit inspection remains mandatory before ordering multiples."
+  ]
+}

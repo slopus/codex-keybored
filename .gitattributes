@@ -1,0 +1,12 @@
+# Manufacturing and visual artifacts are binary; avoid misleading text diffs.
+*.step binary
+*.stp binary
+*.dxf binary
+*.f3d binary
+*.pdf binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.zip binary
+*.bin binary
+*.elf binary

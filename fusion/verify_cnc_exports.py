@@ -10,7 +10,7 @@ import adsk.fusion
 FILES = [
     "/Users/steve/Documents/CodexKB/codex-micro/cnc/STEP/CM2-001_upper_housing.step",
     "/Users/steve/Documents/CodexKB/codex-micro/cnc/STEP/CM2-002_bottom_weight.step",
-    "/Users/steve/Documents/CodexKB/codex-micro/cnc/STEP/CM2-003_optional_lightpipe.step",
+    "/Users/steve/Documents/CodexKB/codex-micro/cnc/STEP/CM2-003_lightpipe.step",
     "/Users/steve/Documents/CodexKB/codex-micro/cnc/STEP/CM2-004_joystick_cap.step",
 ]
 
